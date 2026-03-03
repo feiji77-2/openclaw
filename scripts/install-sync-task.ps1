@@ -3,6 +3,7 @@ param(
   [string]$TaskName = "OpenClaw-UpstreamSync",
   [int]$IntervalMinutes = 60,
   [string]$RepoPath = "",
+  [string[]]$PushRemotes = @("gitee"),
   [switch]$RunNow
 )
 
@@ -29,6 +30,9 @@ if (-not $powershellExe) {
 }
 
 $arguments = "-NoProfile -ExecutionPolicy Bypass -File `"$syncScript`" -RepoPath `"$RepoPath`""
+foreach ($remote in $PushRemotes) {
+  $arguments += " -PushRemotes `"$remote`""
+}
 $action = New-ScheduledTaskAction -Execute $powershellExe -Argument $arguments
 
 $startAt = (Get-Date).AddMinutes(1)
