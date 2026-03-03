@@ -4,7 +4,7 @@ param(
   [string]$Branch = "main",
   [string]$UpstreamRemote = "upstream",
   [string]$UpstreamBranch = "main",
-  [string[]]$PushRemotes = @("origin", "gitee"),
+  [string[]]$PushRemotes = @("gitee"),
   [switch]$NoPush,
   [switch]$SkipFetch,
   [switch]$DryRun
