@@ -81,6 +81,23 @@ else {
   Write-Host ("Fetching {0}..." -f $UpstreamRemote)
   $fetchResult = Invoke-Git -Args @("fetch", $UpstreamRemote, "--prune") -AllowFail
   if ($fetchResult.Code -ne 0) {
+    $fetchText = ($fetchResult.Output | ForEach-Object { $_.ToString() }) -join "`n"
+    if ($fetchText -match "502") {
+      throw @"
+Failed to fetch upstream: GitHub returned 502.
+This is usually a network/egress issue (not script logic).
+
+Try one of these:
+1) Configure Git proxy (example):
+   git config --global http.proxy http://127.0.0.1:7890
+   git config --global https.proxy http://127.0.0.1:7890
+2) Use a reachable upstream mirror (then rerun sync).
+
+Original fetch output:
+$fetchText
+"@
+    }
+
     throw @"
 Failed to fetch upstream.
 If this is a certificate issue on your machine, verify your corporate/root CA setup first.
@@ -89,6 +106,9 @@ Recommended (Windows):
   git config --global http.sslVerify true
   git config --global --unset-all http.sslCAInfo
 Then re-run this script.
+
+Original fetch output:
+$fetchText
 "@
   }
 }
