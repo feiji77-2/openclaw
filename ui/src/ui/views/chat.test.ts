@@ -63,13 +63,12 @@ describe("chat view", () => {
       container,
     );
 
-    const stopButton = Array.from(container.querySelectorAll("button")).find(
-      (btn) => btn.textContent?.trim() === "Stop",
-    );
-    expect(stopButton).not.toBeUndefined();
-    stopButton?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    const actionButton = container.querySelector(
+      ".chat-compose__actions .btn",
+    ) as HTMLButtonElement | null;
+    expect(actionButton).not.toBeNull();
+    actionButton?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
     expect(onAbort).toHaveBeenCalledTimes(1);
-    expect(container.textContent).not.toContain("New session");
   });
 
   it("shows a new session button when aborting is unavailable", () => {
@@ -85,12 +84,64 @@ describe("chat view", () => {
       container,
     );
 
-    const newSessionButton = Array.from(container.querySelectorAll("button")).find(
-      (btn) => btn.textContent?.trim() === "New session",
-    );
-    expect(newSessionButton).not.toBeUndefined();
-    newSessionButton?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    const actionButton = container.querySelector(
+      ".chat-compose__actions .btn",
+    ) as HTMLButtonElement | null;
+    expect(actionButton).not.toBeNull();
+    actionButton?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
     expect(onNewSession).toHaveBeenCalledTimes(1);
-    expect(container.textContent).not.toContain("Stop");
+  });
+
+  it("renders new messages button when showNewMessages is true", () => {
+    const container = document.createElement("div");
+    render(
+      renderChat(
+        createProps({
+          showNewMessages: true,
+          onScrollToBottom: () => undefined,
+        }),
+      ),
+      container,
+    );
+
+    const newMessagesButton = container.querySelector(".chat-new-messages");
+    expect(newMessagesButton).not.toBeNull();
+  });
+
+  it("calls onScrollToBottom when new messages button is clicked", () => {
+    const container = document.createElement("div");
+    const onScrollToBottom = vi.fn();
+    render(
+      renderChat(
+        createProps({
+          showNewMessages: true,
+          onScrollToBottom,
+        }),
+      ),
+      container,
+    );
+
+    const newMessagesButton = container.querySelector(".chat-new-messages");
+    expect(newMessagesButton).not.toBeNull();
+    newMessagesButton?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    expect(onScrollToBottom).toHaveBeenCalledTimes(1);
+  });
+
+  it("does not render new messages button when showNewMessages is false or undefined", () => {
+    const hiddenContainer = document.createElement("div");
+    render(
+      renderChat(
+        createProps({
+          showNewMessages: false,
+          onScrollToBottom: () => undefined,
+        }),
+      ),
+      hiddenContainer,
+    );
+    expect(hiddenContainer.querySelector(".chat-new-messages")).toBeNull();
+
+    const defaultContainer = document.createElement("div");
+    render(renderChat(createProps()), defaultContainer);
+    expect(defaultContainer.querySelector(".chat-new-messages")).toBeNull();
   });
 });

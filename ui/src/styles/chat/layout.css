@@ -111,6 +111,58 @@
   z-index: 10;
 }
 
+.chat-new-messages {
+  position: absolute;
+  left: 50%;
+  bottom: 84px;
+  transform: translateX(-50%);
+  z-index: 11;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border-strong);
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background var(--duration-fast) ease,
+    border-color var(--duration-fast) ease,
+    transform var(--duration-fast) ease;
+}
+
+.chat-new-messages:hover {
+  background: var(--panel-strong);
+  border-color: var(--accent);
+  transform: translateX(-50%) translateY(-1px);
+}
+
+.chat-new-messages svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.75px;
+}
+
+:root[data-theme="light"] .chat-new-messages {
+  background: var(--card);
+  border-color: var(--border);
+}
+
+:root[data-theme="light"] .chat-new-messages:hover {
+  background: var(--bg);
+  border-color: var(--border-strong);
+}
+
+.shell--chat-focus .chat-new-messages {
+  bottom: calc(84px + env(safe-area-inset-bottom, 0px) + var(--shell-pad));
+}
+
 /* Image attachments preview */
 .chat-attachments {
   display: inline-flex;
@@ -380,6 +432,12 @@
 @media (max-width: 640px) {
   .chat-session {
     min-width: 140px;
+  }
+
+  .chat-new-messages {
+    bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+    padding: 6px 10px;
+    font-size: 11px;
   }
 
   .chat-compose {

@@ -31,7 +31,7 @@ import {
   tabFromPath,
   type Tab,
 } from "./navigation.ts";
-import { saveSettings, type UiSettings } from "./storage.ts";
+import { clearSettings, loadSettings, saveSettings, type UiSettings } from "./storage.ts";
 import { startThemeTransition, type ThemeTransitionContext } from "./theme-transition.ts";
 import { resolveTheme, type ResolvedTheme, type ThemeMode } from "./theme.ts";
 
@@ -71,6 +71,26 @@ export function applySettings(host: SettingsHost, next: UiSettings) {
   host.applySessionKey = host.settings.lastActiveSessionKey;
 }
 
+function isTruthyFlag(raw: string | null): boolean {
+  if (!raw) {
+    return false;
+  }
+  const normalized = raw.trim().toLowerCase();
+  return normalized === "1" || normalized === "true" || normalized === "yes" || normalized === "on";
+}
+
+function parseHashParams(hash: string): URLSearchParams | null {
+  if (!hash) {
+    return null;
+  }
+  const withoutPrefix = hash.startsWith("#") ? hash.slice(1) : hash;
+  const candidate = withoutPrefix.startsWith("?") ? withoutPrefix.slice(1) : withoutPrefix;
+  if (!candidate || !candidate.includes("=")) {
+    return null;
+  }
+  return new URLSearchParams(candidate);
+}
+
 export function setLastActiveSessionKey(host: SettingsHost, next: string) {
   const trimmed = next.trim();
   if (!trimmed) {
@@ -83,23 +103,53 @@ export function setLastActiveSessionKey(host: SettingsHost, next: string) {
 }
 
 export function applySettingsFromUrl(host: SettingsHost) {
-  if (!window.location.search) {
+  if (!window.location.search && !parseHashParams(window.location.hash)) {
     return;
   }
   const params = new URLSearchParams(window.location.search);
-  const tokenRaw = params.get("token");
-  const passwordRaw = params.get("password");
-  const sessionRaw = params.get("session");
-  const gatewayUrlRaw = params.get("gatewayUrl");
+  const hashParams = parseHashParams(window.location.hash);
   let shouldCleanUrl = false;
+
+  const getParam = (key: string): string | null => params.get(key) ?? hashParams?.get(key) ?? null;
+  const deleteParam = (key: string) => {
+    if (params.has(key)) {
+      params.delete(key);
+      shouldCleanUrl = true;
+    }
+    if (hashParams?.has(key)) {
+      hashParams.delete(key);
+      shouldCleanUrl = true;
+    }
+  };
+
+  const resetRaw = getParam("reset");
+  const tokenRaw = getParam("token");
+  const passwordRaw = getParam("password");
+  const sessionRaw = getParam("session");
+  const gatewayUrlRaw = getParam("gatewayUrl");
+  const didReset = isTruthyFlag(resetRaw);
+
+  if (didReset) {
+    clearSettings();
+    const defaults = loadSettings();
+    applySettings(host, defaults);
+    host.sessionKey = defaults.sessionKey;
+    host.applySessionKey = defaults.lastActiveSessionKey;
+    if ("password" in host) {
+      (host as { password: string }).password = "";
+    }
+    deleteParam("reset");
+    deleteParam("session");
+  } else if (resetRaw != null) {
+    deleteParam("reset");
+  }
 
   if (tokenRaw != null) {
     const token = tokenRaw.trim();
     if (token) {
       applySettings(host, { ...host.settings, token });
     }
-    params.delete("token");
-    shouldCleanUrl = true;
+    deleteParam("token");
   }
 
   if (passwordRaw != null) {
@@ -107,11 +157,10 @@ export function applySettingsFromUrl(host: SettingsHost) {
     if (password) {
       (host as { password: string }).password = password;
     }
-    params.delete("password");
-    shouldCleanUrl = true;
+    deleteParam("password");
   }
 
-  if (sessionRaw != null) {
+  if (!didReset && sessionRaw != null) {
     const session = sessionRaw.trim();
     if (session) {
       host.sessionKey = session;
@@ -128,8 +177,7 @@ export function applySettingsFromUrl(host: SettingsHost) {
     if (gatewayUrl && gatewayUrl !== host.settings.gatewayUrl) {
       host.pendingGatewayUrl = gatewayUrl;
     }
-    params.delete("gatewayUrl");
-    shouldCleanUrl = true;
+    deleteParam("gatewayUrl");
   }
 
   if (!shouldCleanUrl) {
@@ -137,6 +185,10 @@ export function applySettingsFromUrl(host: SettingsHost) {
   }
   const url = new URL(window.location.href);
   url.search = params.toString();
+  if (hashParams) {
+    const nextHash = hashParams.toString();
+    url.hash = nextHash ? `#${nextHash}` : "";
+  }
   window.history.replaceState({}, "", url.toString());
 }
 

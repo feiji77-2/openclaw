@@ -1,7 +1,9 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { Tab } from "./navigation";
-import { setTabFromRoute } from "./app-settings";
+import { applySettingsFromUrl, setTabFromRoute } from "./app-settings";
+
+const SETTINGS_STORAGE_KEY = "clawdbot.control.settings.v1";
 
 type SettingsHost = Parameters<typeof setTabFromRoute>[0] & {
   logsPollInterval: number | null;
@@ -67,5 +69,54 @@ describe("setTabFromRoute", () => {
 
     setTabFromRoute(host, "chat");
     expect(host.debugPollInterval).toBeNull();
+  });
+});
+
+describe("applySettingsFromUrl", () => {
+  beforeEach(() => {
+    localStorage.clear();
+    window.history.replaceState({}, "", "http://localhost/chat");
+  });
+
+  it("resets settings and does not reapply stale session from URL", () => {
+    localStorage.setItem(
+      SETTINGS_STORAGE_KEY,
+      JSON.stringify({
+        gatewayUrl: "ws://localhost",
+        token: "stale-token",
+        sessionKey: "legacy-session",
+        lastActiveSessionKey: "legacy-session",
+        theme: "dark",
+        chatFocusMode: true,
+        chatShowThinking: false,
+        sendOnEnter: true,
+        splitRatio: 0.55,
+        navCollapsed: true,
+        navGroupsCollapsed: { admin: true },
+      }),
+    );
+    const host = createHost("chat");
+    host.settings = {
+      ...host.settings,
+      token: "stale-token",
+      sessionKey: "legacy-session",
+      lastActiveSessionKey: "legacy-session",
+      theme: "dark",
+    };
+    host.password = "secret";
+    host.theme = "dark";
+    host.sessionKey = "legacy-session";
+    host.applySessionKey = "legacy-session";
+
+    window.history.replaceState({}, "", "http://localhost/chat?reset=1&session=legacy-session");
+    applySettingsFromUrl(host);
+
+    expect(host.settings.sessionKey).toBe("main");
+    expect(host.settings.lastActiveSessionKey).toBe("main");
+    expect(host.sessionKey).toBe("main");
+    expect(host.applySessionKey).toBe("main");
+    expect(host.theme).toBe("system");
+    expect(host.password).toBe("");
+    expect(new URL(window.location.href).search).toBe("");
   });
 });

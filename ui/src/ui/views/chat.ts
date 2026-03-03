@@ -349,6 +349,7 @@ export function renderChat(props: ChatProps) {
             <button
               class="chat-new-messages"
               type="button"
+              aria-label="Scroll to latest messages"
               @click=${props.onScrollToBottom}
             >
               新消息 ${icons.arrowDown}

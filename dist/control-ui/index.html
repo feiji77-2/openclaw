@@ -5,9 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clawdbot Control</title>
     <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#12141a" />
     <link rel="icon" href="./favicon.ico" sizes="any" />
-    <script type="module" crossorigin src="./assets/index-DxGIZCgj.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-N_FKqcDh.css">
+    <style>
+      :root {
+        --boot-bg: #12141a;
+        --boot-text: #e4e4e7;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background: var(--boot-bg);
+        color: var(--boot-text);
+      }
+
+      openclaw-app {
+        display: block;
+        min-height: 100vh;
+      }
+    </style>
+    <script>
+      (() => {
+        const STORAGE_KEY = "clawdbot.control.settings.v1";
+        const DARK_BG = "#12141a";
+        const DARK_TEXT = "#e4e4e7";
+        const LIGHT_BG = "#fafafa";
+        const LIGHT_TEXT = "#3f3f46";
+        const root = document.documentElement;
+
+        let themeMode = "system";
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            const next = parsed && typeof parsed.theme === "string" ? parsed.theme : "";
+            if (next === "dark" || next === "light" || next === "system") {
+              themeMode = next;
+            }
+          }
+        } catch {
+          // Keep defaults when localStorage is unavailable or malformed.
+        }
+
+        const prefersDark =
+          typeof window.matchMedia === "function" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const resolved = themeMode === "system" ? (prefersDark ? "dark" : "light") : themeMode;
+
+        const isDark = resolved === "dark";
+        root.dataset.theme = resolved;
+        root.style.colorScheme = resolved;
+        root.style.setProperty("--boot-bg", isDark ? DARK_BG : LIGHT_BG);
+        root.style.setProperty("--boot-text", isDark ? DARK_TEXT : LIGHT_TEXT);
+      })();
+    </script>
+    <script type="module" crossorigin src="./assets/index-DP2wYRty.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-D_XDakn6.css">
   </head>
   <body>
     <openclaw-app></openclaw-app>
