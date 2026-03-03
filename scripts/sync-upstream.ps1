@@ -30,10 +30,18 @@ function Invoke-Git {
     return @{ Code = 0; Output = @() }
   }
 
-  $output = & git @full 2>&1
-  $code = $LASTEXITCODE
+  $prevErrorAction = $ErrorActionPreference
+  $ErrorActionPreference = "Continue"
+  try {
+    $output = & git @full 2>&1
+    $code = $LASTEXITCODE
+  }
+  finally {
+    $ErrorActionPreference = $prevErrorAction
+  }
+
   if ($output) {
-    $output | ForEach-Object { Write-Host $_ }
+    $output | ForEach-Object { Write-Host ($_.ToString()) }
   }
 
   if (-not $AllowFail -and $code -ne 0) {
@@ -76,9 +84,11 @@ else {
     throw @"
 Failed to fetch upstream.
 If this is a certificate issue on your machine, verify your corporate/root CA setup first.
-As a temporary workaround only, you can run:
-  git config --global http.https://github.com.sslVerify false
-and re-run this script.
+Recommended (Windows):
+  git config --global http.sslBackend schannel
+  git config --global http.sslVerify true
+  git config --global --unset-all http.sslCAInfo
+Then re-run this script.
 "@
   }
 }
