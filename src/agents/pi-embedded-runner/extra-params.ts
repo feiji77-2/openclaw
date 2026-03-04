@@ -72,6 +72,15 @@ function createStreamFnWithExtraParams(
   if (typeof extraParams.maxTokens === "number") {
     streamParams.maxTokens = extraParams.maxTokens;
   }
+  if (
+    extraParams.reasoning === "minimal" ||
+    extraParams.reasoning === "low" ||
+    extraParams.reasoning === "medium" ||
+    extraParams.reasoning === "high" ||
+    extraParams.reasoning === "xhigh"
+  ) {
+    streamParams.reasoning = extraParams.reasoning;
+  }
   const cacheRetention = resolveCacheRetention(extraParams, provider);
   if (cacheRetention) {
     // @ts-ignore -- cherry-pick upstream type mismatch

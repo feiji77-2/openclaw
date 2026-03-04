@@ -3,7 +3,43 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-const pnpm = process.platform === "win32" ? "pnpm.cmd" : "pnpm";
+const pnpmCommand = process.platform === "win32" ? process.env.ComSpec || "cmd.exe" : "pnpm";
+const pnpmPreludeArgs = process.platform === "win32" ? ["/d", "/s", "/c", "pnpm.cmd"] : [];
+
+function spawnPnpm(args, env) {
+  return spawn(pnpmCommand, [...pnpmPreludeArgs, ...args], {
+    stdio: "inherit",
+    env,
+  });
+}
+
+function runPnpmWithTracking(args, env, resolve) {
+  let child;
+  try {
+    child = spawnPnpm(args, env);
+  } catch (error) {
+    console.error("[test-parallel] Failed to spawn pnpm:", error);
+    resolve(1);
+    return;
+  }
+  children.add(child);
+  let settled = false;
+  const finish = (code) => {
+    if (settled) {
+      return;
+    }
+    settled = true;
+    children.delete(child);
+    resolve(code);
+  };
+  child.on("error", (error) => {
+    console.error("[test-parallel] Test child process error:", error);
+    finish(1);
+  });
+  child.on("exit", (code, signal) => {
+    finish(code ?? (signal ? 1 : 0));
+  });
+}
 
 const unitIsolatedFilesRaw = [
   "src/plugins/loader.test.ts",
@@ -220,15 +256,11 @@ const runOnce = (entry, extraArgs = []) =>
       (acc, flag) => (acc.includes(flag) ? acc : `${acc} ${flag}`.trim()),
       nodeOptions,
     );
-    const child = spawn(pnpm, args, {
-      stdio: "inherit",
-      env: { ...process.env, VITEST_GROUP: entry.name, NODE_OPTIONS: nextNodeOptions },
-    });
-    children.add(child);
-    child.on("exit", (code, signal) => {
-      children.delete(child);
-      resolve(code ?? (signal ? 1 : 0));
-    });
+    runPnpmWithTracking(
+      args,
+      { ...process.env, VITEST_GROUP: entry.name, NODE_OPTIONS: nextNodeOptions },
+      resolve,
+    );
   });
 
 const run = async (entry) => {
@@ -273,15 +305,7 @@ if (passthroughArgs.length > 0) {
     nodeOptions,
   );
   const code = await new Promise((resolve) => {
-    const child = spawn(pnpm, args, {
-      stdio: "inherit",
-      env: { ...process.env, NODE_OPTIONS: nextNodeOptions },
-    });
-    children.add(child);
-    child.on("exit", (exitCode, signal) => {
-      children.delete(child);
-      resolve(exitCode ?? (signal ? 1 : 0));
-    });
+    runPnpmWithTracking(args, { ...process.env, NODE_OPTIONS: nextNodeOptions }, resolve);
   });
   process.exit(Number(code) || 0);
 }

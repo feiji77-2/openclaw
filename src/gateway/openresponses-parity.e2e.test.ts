@@ -250,6 +250,22 @@ describe("OpenResponses Feature Parity", () => {
       const turn2Result = CreateResponseBodySchema.safeParse(turn2Request);
       expect(turn2Result.success).toBe(true);
     });
+
+    it("should validate request with reasoning effort and nullable summary", async () => {
+      const { CreateResponseBodySchema } = await import("./open-responses.schema.js");
+
+      const validRequest = {
+        model: "claude-sonnet-4-20250514",
+        input: "hi",
+        reasoning: {
+          effort: "minimal" as const,
+          summary: null,
+        },
+      };
+
+      const result = CreateResponseBodySchema.safeParse(validRequest);
+      expect(result.success).toBe(true);
+    });
   });
 
   describe("Response Resource Schema", () => {

@@ -113,6 +113,42 @@ describe("buildInlineProviderModels", () => {
       name: "claude-opus-4.5",
     });
   });
+
+  it("merges provider headers into inline model headers and keeps authHeader", () => {
+    const providers = {
+      custom: {
+        baseUrl: "http://localhost:10000",
+        api: "openai-responses",
+        headers: {
+          "X-Provider": "provider",
+          "X-Shared": "provider-shared",
+        },
+        authHeader: true,
+        models: [
+          {
+            ...makeModel("custom-model"),
+            headers: {
+              "X-Model": "model",
+              "X-Shared": "model-shared",
+            },
+          },
+        ],
+      },
+    };
+
+    const result = buildInlineProviderModels(providers);
+
+    expect(result).toHaveLength(1);
+    expect(result[0]).toMatchObject({
+      provider: "custom",
+      authHeader: true,
+      headers: {
+        "X-Provider": "provider",
+        "X-Model": "model",
+        "X-Shared": "model-shared",
+      },
+    });
+  });
 });
 
 describe("resolveModel", () => {
@@ -133,6 +169,35 @@ describe("resolveModel", () => {
     expect(result.model?.baseUrl).toBe("http://localhost:9000");
     expect(result.model?.provider).toBe("custom");
     expect(result.model?.id).toBe("missing-model");
+  });
+
+  it("includes provider headers and authHeader in fallback model", () => {
+    const cfg = {
+      models: {
+        providers: {
+          custom: {
+            baseUrl: "http://localhost:9000",
+            headers: {
+              "X-Provider": "provider",
+            },
+            authHeader: true,
+            models: [],
+          },
+        },
+      },
+    } as OpenClawConfig;
+
+    const result = resolveModel("custom", "missing-model", "/tmp/agent", cfg);
+
+    expect(result.model).toMatchObject({
+      baseUrl: "http://localhost:9000",
+      provider: "custom",
+      id: "missing-model",
+      headers: {
+        "X-Provider": "provider",
+      },
+      authHeader: true,
+    });
   });
 
   it("builds an openai-codex fallback for gpt-5.3-codex", () => {

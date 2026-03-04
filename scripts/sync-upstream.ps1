@@ -124,11 +124,20 @@ if ($ffMerge.Code -ne 0) {
   Write-Host "Fast-forward not possible. Trying regular merge..."
   $regularMerge = Invoke-Git -Args @("merge", "--no-edit", ("{0}/{1}" -f $UpstreamRemote, $UpstreamBranch)) -AllowFail
   if ($regularMerge.Code -ne 0) {
+    Write-Warning "Merge produced conflicts. Attempting 'git merge --abort' to keep repository clean..."
+    $abortMerge = Invoke-Git -Args @("merge", "--abort") -AllowFail
+    if ($abortMerge.Code -ne 0) {
+      Write-Warning "Automatic 'git merge --abort' failed. Repository may still be in merge-conflict state."
+    }
+
     throw @"
 Merge failed (likely conflicts).
-Resolve conflicts manually, then run:
+The script attempted 'git merge --abort' to avoid leaving the repository in a conflicted state.
+
+If you still need this merge, resolve conflicts manually:
+  git merge ${UpstreamRemote}/${UpstreamBranch}
   git add <resolved files>
-  git merge --continue
+  git commit
 "@
   }
 }

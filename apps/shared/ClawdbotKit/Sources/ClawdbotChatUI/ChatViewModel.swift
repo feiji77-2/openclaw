@@ -41,7 +41,7 @@ public final class ClawdbotChatViewModel {
 
     @ObservationIgnored
     private nonisolated(unsafe) var pendingRunTimeoutTasks: [String: Task<Void, Never>] = [:]
-    private let pendingRunTimeoutMs: UInt64 = 120_000
+    private let pendingRunTimeoutMs: UInt64 = 60_000 // 降低到 60 秒，提升用户体验
 
     private var pendingToolCallsById: [String: ClawdbotChatPendingToolCall] = [:] {
         didSet {

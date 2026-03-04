@@ -190,8 +190,8 @@ export const CreateResponseBodySchema = z
     previous_response_id: z.string().optional(),
     reasoning: z
       .object({
-        effort: z.enum(["low", "medium", "high"]).optional(),
-        summary: z.enum(["auto", "concise", "detailed"]).optional(),
+        effort: z.enum(["minimal", "low", "medium", "high"]).optional(),
+        summary: z.enum(["auto", "concise", "detailed"]).nullable().optional(),
       })
       .optional(),
     truncation: z.enum(["auto", "disabled"]).optional(),

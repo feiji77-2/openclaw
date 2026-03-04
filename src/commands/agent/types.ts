@@ -12,6 +12,8 @@ export type AgentStreamParams = {
   /** Provider stream params override (best-effort). */
   temperature?: number;
   maxTokens?: number;
+  /** Best-effort reasoning effort for providers that support it (e.g. OpenAI Responses). */
+  reasoning?: "minimal" | "low" | "medium" | "high" | "xhigh";
 };
 
 export type AgentRunContext = {

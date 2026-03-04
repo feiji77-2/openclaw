@@ -378,6 +378,35 @@ describe("OpenResponses HTTP API (e2e)", () => {
       ).toBe(123);
       await ensureResponseConsumed(resMaxTokens);
 
+      mockAgentOnce([{ text: "ok" }]);
+      const resReasoning = await postResponses(port, {
+        model: "clawdbot",
+        input: "hi",
+        reasoning: { effort: "high" },
+      });
+      expect(resReasoning.status).toBe(200);
+      const [optsReasoning] = agentCommand.mock.calls[0] ?? [];
+      expect(
+        (optsReasoning as { streamParams?: { reasoning?: string } } | undefined)?.streamParams
+          ?.reasoning,
+      ).toBe("high");
+      await ensureResponseConsumed(resReasoning);
+
+      mockAgentOnce([{ text: "ok" }]);
+      const resReasoningMinimal = await postResponses(port, {
+        model: "clawdbot",
+        input: "hi",
+        reasoning: { effort: "minimal" },
+        max_output_tokens: 256,
+      });
+      expect(resReasoningMinimal.status).toBe(200);
+      const [optsReasoningMinimal] = agentCommand.mock.calls[0] ?? [];
+      expect(
+        (optsReasoningMinimal as { streamParams?: { reasoning?: string; maxTokens?: number } })
+          ?.streamParams,
+      ).toEqual({ maxTokens: 256, reasoning: "minimal" });
+      await ensureResponseConsumed(resReasoningMinimal);
+
       mockAgentOnce([{ text: "ok" }], {
         agentMeta: {
           usage: { input: 3, output: 5, cacheRead: 1, cacheWrite: 1 },

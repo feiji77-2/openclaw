@@ -519,10 +519,17 @@ export async function handleOpenResponsesHttpRequest(
   const responseId = `resp_${randomUUID()}`;
   const outputItemId = `msg_${randomUUID()}`;
   const deps = createDefaultDeps();
-  const streamParams =
-    typeof payload.max_output_tokens === "number"
-      ? { maxTokens: payload.max_output_tokens }
-      : undefined;
+  const streamParams = (() => {
+    const next: { maxTokens?: number; reasoning?: "minimal" | "low" | "medium" | "high" } = {};
+    if (typeof payload.max_output_tokens === "number") {
+      next.maxTokens = payload.max_output_tokens;
+    }
+    const effort = payload.reasoning?.effort;
+    if (effort === "minimal" || effort === "low" || effort === "medium" || effort === "high") {
+      next.reasoning = effort;
+    }
+    return Object.keys(next).length > 0 ? next : undefined;
+  })();
 
   if (!stream) {
     try {

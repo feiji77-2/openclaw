@@ -3,6 +3,9 @@ param(
   [string]$TaskName = "OpenClaw-UpstreamSync",
   [int]$IntervalMinutes = 60,
   [string]$RepoPath = "",
+  [string]$Branch = "main",
+  [string]$UpstreamRemote = "upstream",
+  [string]$UpstreamBranch = "main",
   [string[]]$PushRemotes = @("gitee"),
   [switch]$RunNow
 )
@@ -29,7 +32,7 @@ if (-not $powershellExe) {
   throw "powershell.exe not found in PATH."
 }
 
-$arguments = "-NoProfile -ExecutionPolicy Bypass -File `"$syncScript`" -RepoPath `"$RepoPath`""
+$arguments = "-NoProfile -ExecutionPolicy Bypass -File `"$syncScript`" -RepoPath `"$RepoPath`" -Branch `"$Branch`" -UpstreamRemote `"$UpstreamRemote`" -UpstreamBranch `"$UpstreamBranch`""
 foreach ($remote in $PushRemotes) {
   $arguments += " -PushRemotes `"$remote`""
 }

@@ -57,9 +57,10 @@ class ChatController(
 
   private val pendingRuns = mutableSetOf<String>()
   private val pendingRunTimeoutJobs = ConcurrentHashMap<String, Job>()
-  private val pendingRunTimeoutMs = 120_000L
+  private val pendingRunTimeoutMs = 60_000L // 降低到 60 秒，提升用户体验
 
   private var lastHealthPollAtMs: Long? = null
+  private var sendStartTimeMs: Long? = null
 
   fun onDisconnected(message: String) {
     _healthOk.value = false
@@ -160,6 +161,7 @@ class ChatController(
     _streamingAssistantText.value = null
     pendingToolCallsById.clear()
     publishPendingToolCalls()
+    sendStartTimeMs = System.currentTimeMillis()
 
     scope.launch {
       try {
@@ -168,7 +170,7 @@ class ChatController(
             put("sessionKey", JsonPrimitive(sessionKey))
             put("message", JsonPrimitive(text))
             put("thinking", JsonPrimitive(thinking))
-            put("timeoutMs", JsonPrimitive(30_000))
+            put("timeoutMs", JsonPrimitive(45_000)) // 增加到 45 秒，给服务器更多处理时间
             put("idempotencyKey", JsonPrimitive(runId))
             if (attachments.isNotEmpty()) {
               put(
@@ -187,6 +189,7 @@ class ChatController(
             }
           }
         val res = session.request("chat.send", params.toString())
+        sendStartTimeMs = null
         val actualRunId = parseRunId(res) ?: runId
         if (actualRunId != runId) {
           clearPendingRun(runId)
@@ -197,8 +200,17 @@ class ChatController(
           }
         }
       } catch (err: Throwable) {
+        sendStartTimeMs = null
         clearPendingRun(runId)
-        _errorText.value = err.message
+        // 提供更友好的错误信息
+        val errorMsg = when {
+          err.message?.contains("timeout", ignoreCase = true) == true ->
+            "请求超时，请检查网络连接后重试"
+          err.message?.contains("connection", ignoreCase = true) == true ->
+            "网络连接失败，请检查网络设置"
+          else -> err.message ?: "发送消息失败，请重试"
+        }
+        _errorText.value = errorMsg
       }
     }
   }
@@ -414,7 +426,16 @@ class ChatController(
           }
         if (!stillPending) return@launch
         clearPendingRun(runId)
-        _errorText.value = "Timed out waiting for a reply; try again or refresh."
+        
+        // 计算实际等待时间，提供更详细的超时信息
+        val waitedSeconds = (System.currentTimeMillis() - (sendStartTimeMs ?: 0)) / 1000
+        val timeoutMsg = if (waitedSeconds > 0) {
+          "等待回复超时（已等待 ${waitedSeconds} 秒），请检查网络或稍后重试"
+        } else {
+          "等待回复超时，请检查网络连接后重试"
+        }
+        _errorText.value = timeoutMsg
+        sendStartTimeMs = null
       }
   }
 

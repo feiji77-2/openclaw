@@ -12,10 +12,16 @@ import {
   type ModelRegistry,
 } from "../pi-model-discovery.js";
 
-type InlineModelEntry = ModelDefinitionConfig & { provider: string; baseUrl?: string };
+type InlineModelEntry = ModelDefinitionConfig & {
+  provider: string;
+  baseUrl?: string;
+  authHeader?: boolean;
+};
 type InlineProviderConfig = {
   baseUrl?: string;
   api?: ModelDefinitionConfig["api"];
+  headers?: Record<string, string>;
+  authHeader?: boolean;
   models?: ModelDefinitionConfig[];
 };
 
@@ -164,12 +170,18 @@ export function buildInlineProviderModels(
     if (!trimmed) {
       return [];
     }
-    return (entry?.models ?? []).map((model) => ({
-      ...model,
-      provider: trimmed,
-      baseUrl: entry?.baseUrl,
-      api: model.api ?? entry?.api,
-    }));
+    return (entry?.models ?? []).map((model) => {
+      const mergedHeaders =
+        entry?.headers || model.headers ? { ...entry?.headers, ...model.headers } : undefined;
+      return {
+        ...model,
+        ...(mergedHeaders ? { headers: mergedHeaders } : {}),
+        provider: trimmed,
+        baseUrl: entry?.baseUrl,
+        api: model.api ?? entry?.api,
+        ...(typeof entry?.authHeader === "boolean" ? { authHeader: entry.authHeader } : {}),
+      };
+    });
   });
 }
 
@@ -257,6 +269,10 @@ export function resolveModel(
         api: providerCfg?.api ?? "openai-responses",
         provider,
         baseUrl: providerCfg?.baseUrl,
+        headers: providerCfg?.headers,
+        ...(typeof providerCfg?.authHeader === "boolean"
+          ? { authHeader: providerCfg.authHeader }
+          : {}),
         reasoning: false,
         input: ["text"],
         cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },

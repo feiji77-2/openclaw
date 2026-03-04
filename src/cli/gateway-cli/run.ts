@@ -52,6 +52,16 @@ type GatewayRunOpts = {
 
 const gatewayLog = createSubsystemLogger("gateway");
 
+function mergeGatewayRunOpts(
+  opts: GatewayRunOpts,
+  command?: Pick<Command, "optsWithGlobals">,
+): GatewayRunOpts {
+  if (!command || typeof command.optsWithGlobals !== "function") {
+    return opts;
+  }
+  return command.optsWithGlobals() as GatewayRunOpts;
+}
+
 async function runGatewayCommand(opts: GatewayRunOpts) {
   const isDevProfile = process.env.OPENCLAW_PROFILE?.trim().toLowerCase() === "dev";
   const devMode = Boolean(opts.dev) || isDevProfile;
@@ -348,7 +358,7 @@ export function addGatewayRunCommand(cmd: Command): Command {
     .option("--compact", 'Alias for "--ws-log compact"', false)
     .option("--raw-stream", "Log raw model stream events to jsonl", false)
     .option("--raw-stream-path <path>", "Raw stream jsonl path")
-    .action(async (opts) => {
-      await runGatewayCommand(opts);
+    .action(async (opts, command) => {
+      await runGatewayCommand(mergeGatewayRunOpts(opts, command));
     });
 }

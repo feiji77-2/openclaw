@@ -4,6 +4,7 @@ read_when:
   - Integrating clients that speak the OpenResponses API
   - You want item-based inputs, client tool calls, or SSE events
 ---
+
 # OpenResponses API (HTTP)
 
 Clawdbot’s Gateway can serve an OpenResponses-compatible `POST /v1/responses` endpoint.
@@ -23,6 +24,7 @@ Uses the Gateway auth configuration. Send a bearer token:
 - `Authorization: Bearer <token>`
 
 Notes:
+
 - When `gateway.auth.mode="token"`, use `gateway.auth.token` (or `OPENCLAW_GATEWAY_TOKEN`).
 - When `gateway.auth.mode="password"`, use `gateway.auth.password` (or `OPENCLAW_GATEWAY_PASSWORD`).
 
@@ -38,6 +40,7 @@ Or target a specific Clawdbot agent by header:
 - `x-clawdbot-agent-id: <agentId>` (default: `main`)
 
 Advanced:
+
 - `x-clawdbot-session-key: <sessionKey>` to fully control session routing.
 
 ## Enabling the endpoint
@@ -49,10 +52,10 @@ Set `gateway.http.endpoints.responses.enabled` to `true`:
   gateway: {
     http: {
       endpoints: {
-        responses: { enabled: true }
-      }
-    }
-  }
+        responses: { enabled: true },
+      },
+    },
+  },
 }
 ```
 
@@ -65,10 +68,10 @@ Set `gateway.http.endpoints.responses.enabled` to `false`:
   gateway: {
     http: {
       endpoints: {
-        responses: { enabled: false }
-      }
-    }
-  }
+        responses: { enabled: false },
+      },
+    },
+  },
 }
 ```
 
@@ -89,12 +92,13 @@ The request follows the OpenResponses API with item-based input. Current support
 - `tool_choice`: filter or require client tools.
 - `stream`: enables SSE streaming.
 - `max_output_tokens`: best-effort output limit (provider dependent).
+- `reasoning.effort`: best-effort reasoning effort passthrough (provider dependent).
 - `user`: stable session routing.
 
 Accepted but **currently ignored**:
 
 - `max_tool_calls`
-- `reasoning`
+- `reasoning.summary`
 - `metadata`
 - `store`
 - `previous_response_id`
@@ -103,6 +107,7 @@ Accepted but **currently ignored**:
 ## Items (input)
 
 ### `message`
+
 Roles: `system`, `developer`, `user`, `assistant`.
 
 - `system` and `developer` are appended to the system prompt.
@@ -168,6 +173,7 @@ Allowed MIME types (current): `text/plain`, `text/markdown`, `text/html`, `text/
 Max size (current): 5MB.
 
 Current behavior:
+
 - File content is decoded and added to the **system prompt**, not the user message,
   so it stays ephemeral (not persisted in session history).
 - PDFs are parsed for text. If little text is found, the first pages are rasterized
@@ -177,6 +183,7 @@ PDF parsing uses the Node-friendly `pdfjs-dist` legacy build (no worker). The mo
 PDF.js build expects browser workers/DOM globals, so it is not used in the Gateway.
 
 URL fetch defaults:
+
 - `files.allowUrl`: `true`
 - `images.allowUrl`: `true`
 - `maxUrlParts`: `8` (total URL-based `input_file` + `input_image` parts per request)
@@ -216,8 +223,8 @@ Defaults can be tuned under `gateway.http.endpoints.responses`:
             pdf: {
               maxPages: 4,
               maxPixels: 4000000,
-              minTextChars: 200
-            }
+              minTextChars: 200,
+            },
           },
           images: {
             allowUrl: true,
@@ -225,16 +232,17 @@ Defaults can be tuned under `gateway.http.endpoints.responses`:
             allowedMimes: ["image/jpeg", "image/png", "image/gif", "image/webp"],
             maxBytes: 10485760,
             maxRedirects: 3,
-            timeoutMs: 10000
-          }
-        }
-      }
-    }
-  }
+            timeoutMs: 10000,
+          },
+        },
+      },
+    },
+  },
 }
 ```
 
 Defaults when omitted:
+
 - `maxBodyBytes`: 20MB
 - `maxUrlParts`: 8
 - `files.maxBytes`: 5MB
@@ -264,6 +272,7 @@ Set `stream: true` to receive Server-Sent Events (SSE):
 - Stream ends with `data: [DONE]`
 
 Event types currently emitted:
+
 - `response.created`
 - `response.in_progress`
 - `response.output_item.added`
@@ -288,6 +297,7 @@ Errors use a JSON object like:
 ```
 
 Common cases:
+
 - `401` missing/invalid auth
 - `400` invalid request body
 - `405` wrong method
@@ -295,6 +305,7 @@ Common cases:
 ## Examples
 
 Non-streaming:
+
 ```bash
 curl -sS http://127.0.0.1:18789/v1/responses \
   -H 'Authorization: Bearer YOUR_TOKEN' \
@@ -307,6 +318,7 @@ curl -sS http://127.0.0.1:18789/v1/responses \
 ```
 
 Streaming:
+
 ```bash
 curl -N http://127.0.0.1:18789/v1/responses \
   -H 'Authorization: Bearer YOUR_TOKEN' \
