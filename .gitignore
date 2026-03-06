@@ -1,0 +1,26 @@
+# Private runtime config
+config/openclaw.json
+config/openclaw.private.json
+.env
+.env.*
+!.env.example
+
+# Secrets
+**/secrets/
+**/*.key
+**/*.pem
+**/*.p12
+**/*.pfx
+
+# Local state and backups
+logs/
+tmp/
+backups/
+memory/raw/
+*.log
+*.bak
+*.tmp
+
+# Runtime folders that should not be versioned
+.openclaw/
+

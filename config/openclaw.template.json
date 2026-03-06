@@ -1,0 +1,636 @@
+﻿{
+  "meta": {
+    "lastTouchedVersion": "2026.3.2",
+    "lastTouchedAt": "2026-03-06T16:24:04.390Z"
+  },
+  "env": {
+    "vars": {
+      "OPENROUTER_API_KEY": "__REDACTED__",
+      "PERPLEXITY_API_KEY": "__REDACTED__",
+      "OPENAI_API_KEY": "__REDACTED__"
+    }
+  },
+  "wizard": {
+    "lastRunAt": "2026-03-04T04:53:46.718Z",
+    "lastRunVersion": "0.1.7-fix5",
+    "lastRunCommand": "doctor",
+    "lastRunMode": "local"
+  },
+  "update": {
+    "channel": "stable"
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "gmn": {
+        "baseUrl": "https://gmn.chuangzuoli.com/v1",
+        "apiKey": "__REDACTED__",
+        "api": "openai-responses",
+        "headers": {
+          "User-Agent": "codex-rs/1.0.7"
+        },
+        "authHeader": true,
+        "models": [
+          {
+            "id": "gpt-5.3-codex",
+            "name": "gpt-5.3-codex",
+            "api": "openai-responses",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      },
+      "api123": {
+        "baseUrl": "https://api123.icu/v1",
+        "apiKey": "__REDACTED__",
+        "api": "openai-responses",
+        "models": [
+          {
+            "id": "gpt-5.3",
+            "name": "gpt-5.3",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "gmn/gpt-5.3-codex"
+      },
+      "models": {
+        "gmn/gpt-5.3-codex": {},
+        "api123/gpt-5.3": {}
+      },
+      "workspace": "C:\\Users\\32480\\.openclaw\\workspace",
+      "memorySearch": {
+        "enabled": true,
+        "sources": [
+          "memory"
+        ],
+        "extraPaths": [
+          "C:/Users/32480/Documents/Obsidian Vault"
+        ],
+        "provider": "local",
+        "fallback": "none",
+        "local": {
+          "modelPath": "hf:ggml-org/embeddinggemma-300M-GGUF/embeddinggemma-300M-Q8_0.gguf"
+        },
+        "sync": {
+          "onSessionStart": false,
+          "onSearch": true,
+          "watch": false
+        }
+      },
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "thinkingDefault": "xhigh",
+      "blockStreamingDefault": "off",
+      "blockStreamingBreak": "text_end",
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    },
+    "list": [
+      {
+        "id": "main",
+        "default": true,
+        "name": "涓绘帶鏈哄櫒浜猴紙main锛?,
+        "workspace": "C:\\Users\\32480\\.openclaw\\workspace-main",
+        "skills": [
+          "feishu-doc",
+          "feishu-drive",
+          "feishu-wiki",
+          "feishu-perm"
+        ],
+        "subagents": {
+          "allowAgents": [
+            "ceo",
+            "tech",
+            "content",
+            "qa",
+            "publish",
+            "data",
+            "growth",
+            "official"
+          ]
+        },
+        "tools": {
+          "deny": [
+            "sessions_list",
+            "sessions_history"
+          ]
+        }
+      },
+      {
+        "id": "ceo",
+        "default": false,
+        "name": "鎬昏皟搴︽満鍣ㄤ汉锛坈eo锛?,
+        "workspace": "C:\\Users\\32480\\.openclaw\\workspace-bot-ceo",
+        "skills": [],
+        "tools": {
+          "deny": [
+            "sessions_list",
+            "sessions_history",
+            "sessions_spawn",
+            "subagents"
+          ]
+        }
+      },
+      {
+        "id": "tech",
+        "name": "鎶€鏈敮鎸佹満鍣ㄤ汉锛坱ech锛?,
+        "workspace": "C:\\Users\\32480\\.openclaw\\workspace-tech",
+        "skills": [
+          "coding-agent"
+        ],
+        "tools": {
+          "deny": [
+            "sessions_list",
+            "sessions_history",
+            "sessions_spawn",
+            "subagents"
+          ]
+        }
+      },
+      {
+        "id": "content",
+        "name": "鍐呭绛栧垝鏈哄櫒浜猴紙content锛?,
+        "workspace": "C:\\Users\\32480\\.openclaw\\workspace-content",
+        "skills": [],
+        "tools": {
+          "deny": [
+            "sessions_list",
+            "sessions_history",
+            "sessions_spawn",
+            "subagents"
+          ]
+        }
+      },
+      {
+        "id": "qa",
+        "name": "璐ㄦ鏍″鏈哄櫒浜猴紙qa锛?,
+        "workspace": "C:\\Users\\32480\\.openclaw\\workspace-qa",
+        "skills": [],
+        "tools": {
+          "deny": [
+            "sessions_list",
+            "sessions_history",
+            "sessions_spawn",
+            "subagents"
+          ]
+        }
+      },
+      {
+        "id": "publish",
+        "name": "鍙戝竷鎵ц鏈哄櫒浜猴紙publish锛?,
+        "workspace": "C:\\Users\\32480\\.openclaw\\workspace-publish",
+        "skills": [],
+        "tools": {
+          "deny": [
+            "sessions_list",
+            "sessions_history",
+            "sessions_spawn",
+            "subagents"
+          ]
+        }
+      },
+      {
+        "id": "data",
+        "name": "鏁版嵁澧為暱鏈哄櫒浜猴紙data锛?,
+        "workspace": "C:\\Users\\32480\\.openclaw\\workspace-data",
+        "skills": [],
+        "tools": {
+          "deny": [
+            "sessions_list",
+            "sessions_history",
+            "sessions_spawn",
+            "subagents"
+          ]
+        }
+      },
+      {
+        "id": "growth",
+        "name": "鑷垜鎴愰暱璁板綍鏈哄櫒浜猴紙growth锛?,
+        "workspace": "C:\\Users\\32480\\.openclaw\\workspace-growth",
+        "skills": [
+          "skill-creator",
+          "memos-memory-ops",
+          "skill-installer"
+        ],
+        "tools": {
+          "deny": [
+            "sessions_list",
+            "sessions_history",
+            "sessions_spawn",
+            "subagents"
+          ]
+        }
+      },
+      {
+        "id": "official",
+        "name": "鍏紬鍙峰啓浣滄満鍣ㄤ汉锛坥fficial锛?,
+        "workspace": "C:\\Users\\32480\\.openclaw\\workspace-official",
+        "skills": [
+          "official_mp_template"
+        ],
+        "tools": {
+          "deny": [
+            "sessions_list",
+            "sessions_history",
+            "sessions_spawn",
+            "subagents"
+          ]
+        }
+      }
+    ]
+  },
+  "tools": {
+    "web": {
+      "search": {
+        "provider": "perplexity",
+        "apiKey": "__REDACTED__",
+        "perplexity": {
+          "apiKey": "__REDACTED__",
+          "baseUrl": "https://openrouter.ai/api/v1",
+          "model": "perplexity/sonar-pro"
+        }
+      }
+    },
+    "agentToAgent": {
+      "enabled": true,
+      "allow": [
+        "ceo",
+        "tech",
+        "content",
+        "qa",
+        "publish",
+        "data",
+        "growth",
+        "official",
+        "main"
+      ]
+    }
+  },
+  "bindings": [
+    {
+      "agentId": "ceo",
+      "match": {
+        "channel": "feishu",
+        "accountId": "default",
+        "peer": {
+          "kind": "group",
+          "id": "oc_85d25cda36ef2e51f8fb3f40be828c15"
+        }
+      }
+    },
+    {
+      "agentId": "tech",
+      "match": {
+        "channel": "feishu",
+        "accountId": "default",
+        "peer": {
+          "kind": "group",
+          "id": "oc_caebe00cd73ae2cabf2059d9ddacda76"
+        }
+      }
+    },
+    {
+      "agentId": "content",
+      "match": {
+        "channel": "feishu",
+        "accountId": "default",
+        "peer": {
+          "kind": "group",
+          "id": "oc_c94d30f37309dcf8b8c36cbb9dae54cf"
+        }
+      }
+    },
+    {
+      "agentId": "qa",
+      "match": {
+        "channel": "feishu",
+        "accountId": "default",
+        "peer": {
+          "kind": "group",
+          "id": "oc_bb9ba54645111e75e34a9b9b4040ab63"
+        }
+      }
+    },
+    {
+      "agentId": "publish",
+      "match": {
+        "channel": "feishu",
+        "accountId": "default",
+        "peer": {
+          "kind": "group",
+          "id": "oc_ffc8760d20bb76e607877e94f171bc43"
+        }
+      }
+    },
+    {
+      "agentId": "data",
+      "match": {
+        "channel": "feishu",
+        "accountId": "default",
+        "peer": {
+          "kind": "group",
+          "id": "oc_f191dba3b66728a961b6c36917c9f169"
+        }
+      }
+    },
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "feishu",
+        "accountId": "default",
+        "peer": {
+          "kind": "dm",
+          "id": "ou_c29a61f1b13f353e019203835baac90d"
+        }
+      }
+    },
+    {
+      "agentId": "growth",
+      "match": {
+        "channel": "feishu",
+        "accountId": "growth",
+        "peer": {
+          "kind": "group",
+          "id": "oc_e4a927a72481dd90740ac678fc19797c"
+        }
+      }
+    },
+    {
+      "agentId": "growth",
+      "match": {
+        "channel": "feishu",
+        "accountId": "default",
+        "peer": {
+          "kind": "group",
+          "id": "oc_e4a927a72481dd90740ac678fc19797c"
+        }
+      }
+    },
+    {
+      "agentId": "ceo",
+      "match": {
+        "channel": "feishu",
+        "accountId": "ceo",
+        "peer": {
+          "kind": "group",
+          "id": "oc_85d25cda36ef2e51f8fb3f40be828c15"
+        }
+      }
+    },
+    {
+      "agentId": "tech",
+      "match": {
+        "channel": "feishu",
+        "accountId": "tech",
+        "peer": {
+          "kind": "group",
+          "id": "oc_caebe00cd73ae2cabf2059d9ddacda76"
+        }
+      }
+    },
+    {
+      "agentId": "content",
+      "match": {
+        "channel": "feishu",
+        "accountId": "content",
+        "peer": {
+          "kind": "group",
+          "id": "oc_c94d30f37309dcf8b8c36cbb9dae54cf"
+        }
+      }
+    },
+    {
+      "agentId": "qa",
+      "match": {
+        "channel": "feishu",
+        "accountId": "qa",
+        "peer": {
+          "kind": "group",
+          "id": "oc_bb9ba54645111e75e34a9b9b4040ab63"
+        }
+      }
+    },
+    {
+      "agentId": "publish",
+      "match": {
+        "channel": "feishu",
+        "accountId": "publish",
+        "peer": {
+          "kind": "group",
+          "id": "oc_ffc8760d20bb76e607877e94f171bc43"
+        }
+      }
+    },
+    {
+      "agentId": "data",
+      "match": {
+        "channel": "feishu",
+        "accountId": "data",
+        "peer": {
+          "kind": "group",
+          "id": "oc_f191dba3b66728a961b6c36917c9f169"
+        }
+      }
+    },
+    {
+      "agentId": "official",
+      "match": {
+        "channel": "feishu",
+        "accountId": "official",
+        "peer": {
+          "kind": "group",
+          "id": "oc_105ac0301dcf74efc1cbbd052f4377fc"
+        }
+      }
+    }
+  ],
+  "messages": {
+    "queue": {
+      "mode": "collect",
+      "debounceMs": 1200,
+      "cap": 30,
+      "drop": "summarize"
+    },
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "scope": "global",
+    "dmScope": "main",
+    "mainKey": "main",
+    "agentToAgent": {
+      "maxPingPongTurns": 2
+    }
+  },
+  "channels": {
+    "feishu": {
+      "accounts": {
+        "default": {
+          "enabled": true,
+          "appSecret": "__REDACTED__",
+          "appId": "cli_a92a3e20dab8dbd3"
+        },
+        "ceo": {
+          "enabled": true,
+          "appId": "cli_a92f8f4eaa7a5bcb",
+          "appSecret": "__REDACTED__"
+        },
+        "tech": {
+          "enabled": true,
+          "appId": "cli_a92f81f568f8dbd6",
+          "appSecret": "__REDACTED__"
+        },
+        "content": {
+          "enabled": true,
+          "appId": "cli_a92f826d6a389bd2",
+          "appSecret": "__REDACTED__"
+        },
+        "qa": {
+          "enabled": true,
+          "appId": "cli_a92f82ead5785bc6",
+          "appSecret": "__REDACTED__"
+        },
+        "publish": {
+          "enabled": true,
+          "appId": "cli_a92f8373b0385bc0",
+          "appSecret": "__REDACTED__"
+        },
+        "data": {
+          "enabled": true,
+          "appId": "cli_a92f83ce937b1bd7",
+          "appSecret": "__REDACTED__"
+        },
+        "growth": {
+          "enabled": true,
+          "appId": "cli_a92ff044b3381bb5",
+          "appSecret": "__REDACTED__"
+        },
+        "official": {
+          "enabled": true,
+          "appId": "cli_a923eb3f96f99bc2",
+          "appSecret": "__REDACTED__"
+        }
+      },
+      "groups": {
+        "oc_85d25cda36ef2e51f8fb3f40be828c15": {
+          "enabled": true,
+          "requireMention": false
+        },
+        "oc_caebe00cd73ae2cabf2059d9ddacda76": {
+          "enabled": true,
+          "requireMention": false
+        },
+        "oc_c94d30f37309dcf8b8c36cbb9dae54cf": {
+          "enabled": true,
+          "requireMention": false
+        },
+        "oc_bb9ba54645111e75e34a9b9b4040ab63": {
+          "enabled": true,
+          "requireMention": false
+        },
+        "oc_ffc8760d20bb76e607877e94f171bc43": {
+          "enabled": true,
+          "requireMention": false
+        },
+        "oc_f191dba3b66728a961b6c36917c9f169": {
+          "enabled": true,
+          "requireMention": false
+        },
+        "oc_1e99bae95bcbf50183e306eeb50cbf29": {
+          "enabled": true,
+          "requireMention": false
+        },
+        "oc_e4a927a72481dd90740ac678fc19797c": {
+          "enabled": true,
+          "requireMention": false
+        },
+        "oc_105ac0301dcf74efc1cbbd052f4377fc": {
+          "enabled": true,
+          "requireMention": false
+        }
+      }
+    }
+  },
+  "gateway": {
+    "port": 18790,
+    "mode": "local",
+    "bind": "loopback",
+    "controlUi": {
+      "enabled": true,
+      "root": "C:\\Users\\32480\\.openclaw\\control-ui",
+      "allowedOrigins": [
+        "http://127.0.0.1:18789",
+        "http://localhost:18789",
+        "http://127.0.0.1:5173",
+        "http://localhost:5173"
+      ],
+      "allowInsecureAuth": false,
+      "dangerouslyDisableDeviceAuth": false
+    },
+    "auth": {
+      "mode": "token",
+      "token": "__REDACTED__"
+    },
+    "trustedProxies": [
+      "127.0.0.1/32",
+      "::1/128"
+    ],
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "remote": {
+      "token": "__REDACTED__"
+    }
+  },
+  "memory": {
+    "backend": "builtin",
+    "citations": "on"
+  },
+  "plugins": {
+    "deny": [],
+    "slots": {
+      "memory": "memory-core"
+    },
+    "entries": {
+      "feishu": {
+        "enabled": true
+      }
+    }
+  }
+}
