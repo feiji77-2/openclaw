@@ -1,0 +1,309 @@
+name: Upstream Copilot Resolve
+# 将 cherry-pick 冲突的 commit 分配给 GitHub Copilot Agent 自动解决
+# 支持: 手动触发 / upstream-cherry-pick 自动调用
+
+on:
+  workflow_dispatch:
+    inputs:
+      from_tag:
+        description: '起始版本'
+        type: string
+        default: 'auto'
+      to_tag:
+        description: '目标版本'
+        type: string
+        default: 'latest'
+      priority:
+        description: '合并优先级'
+        type: choice
+        options:
+          - 'P0'
+          - 'P0,P1'
+          - 'P0,P1,P2'
+        default: 'P0,P1'
+      issue_number:
+        description: '关联的上游更新 Issue 编号 (可选)'
+        type: string
+        default: ''
+      max_issues:
+        description: '最多创建多少个 Copilot Issue (0=不限)'
+        type: number
+        default: 5
+      dry_run:
+        description: '仅预览，不创建 Issue'
+        type: boolean
+        default: true
+
+  workflow_call:
+    inputs:
+      from_tag:
+        type: string
+        default: 'auto'
+      to_tag:
+        type: string
+        default: 'latest'
+      priority:
+        type: string
+        default: 'P0,P1'
+      issue_number:
+        type: string
+        default: ''
+      max_issues:
+        type: number
+        default: 10
+      dry_run:
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  actions: read
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup upstream remote
+        run: |
+          git remote add upstream https://github.com/openclaw/openclaw.git 2>/dev/null || true
+          git fetch upstream --tags --force
+          git fetch upstream main
+
+      - name: Resolve tags
+        id: tags
+        run: |
+          FROM="${{ inputs.from_tag }}"
+          TO="${{ inputs.to_tag }}"
+
+          if [ "$FROM" = "auto" ] || [ -z "$FROM" ]; then
+            if [ -f ".github/last-upstream-tag" ]; then
+              FROM=$(cat .github/last-upstream-tag | tr -d '[:space:]')
+            else
+              echo "::error::No .github/last-upstream-tag found"
+              exit 1
+            fi
+          fi
+
+          if [ "$TO" = "latest" ] || [ -z "$TO" ]; then
+            TO=$(git tag -l 'v*' --sort=-version:refname | grep -v '-' | head -1)
+          fi
+
+          echo "from=$FROM" >> "$GITHUB_OUTPUT"
+          echo "to=$TO" >> "$GITHUB_OUTPUT"
+          echo "Range: $FROM -> $TO"
+
+      # ============================================================
+      # Step 1: Detect conflicting commits
+      # ============================================================
+      - name: Detect conflicting commits
+        id: conflicts
+        run: |
+          FROM="${{ steps.tags.outputs.from }}"
+          TO="${{ steps.tags.outputs.to }}"
+          P_FILTER=$(echo "${{ inputs.priority }}" | tr ',' '|' | tr '[:lower:]' '[:upper:]')
+
+          chmod +x scripts/upstream-extract-commits.sh
+          ./scripts/upstream-extract-commits.sh "$FROM" "$TO" > /tmp/all-commits.json 2>/dev/null
+
+          jq --arg p "$P_FILTER" \
+            '[.[] | select(.action == "MERGE" and (.priority | test("^(\($p))$")))]' \
+            /tmp/all-commits.json > /tmp/merge-commits.json
+
+          TOTAL=$(jq 'length' /tmp/merge-commits.json)
+          echo "Commits to check: $TOTAL"
+
+          CONFLICTS="[]"
+          SUCCESS=0
+          CONFLICT=0
+
+          git config user.name "conflict-detect[bot]"
+          git config user.email "bot@openclaw-cn.dev"
+
+          for SHA in $(jq -r '.[].sha' /tmp/merge-commits.json); do
+            if git cherry-pick "$SHA" --no-commit 2>/dev/null; then
+              git reset --hard HEAD 2>/dev/null
+              SUCCESS=$((SUCCESS + 1))
+            else
+              git cherry-pick --abort 2>/dev/null || git reset --hard HEAD 2>/dev/null
+
+              INFO=$(jq -r ".[] | select(.sha == \"$SHA\")" /tmp/merge-commits.json)
+              MSG=$(echo "$INFO" | jq -r '.message')
+              PRIORITY=$(echo "$INFO" | jq -r '.priority')
+              CATEGORY=$(echo "$INFO" | jq -r '.category')
+              FILES=$(git show "$SHA" --format="" --name-only | tr '\n' ',' | sed 's/,$//')
+              DIFF_LINES=$(git show "$SHA" --format="" --stat | tail -1 | grep -oP '\d+ insertion' | grep -oP '\d+' || echo "0")
+              MODULE=$(echo "$MSG" | grep -oP '^\w+\(\K[^)]+' || echo "$FILES" | cut -d'/' -f2 | head -1)
+              [ -z "$MODULE" ] && MODULE="other"
+
+              CONFLICTS=$(echo "$CONFLICTS" | jq \
+                --arg sha "$SHA" \
+                --arg msg "$MSG" \
+                --arg priority "$PRIORITY" \
+                --arg category "$CATEGORY" \
+                --arg files "$FILES" \
+                --arg module "$MODULE" \
+                --arg diff_lines "$DIFF_LINES" \
+                '. + [{sha: $sha, message: $msg, priority: $priority, category: $category, files: $files, module: $module, diff_lines: ($diff_lines | tonumber)}]')
+
+              CONFLICT=$((CONFLICT + 1))
+            fi
+          done
+
+          echo "$CONFLICTS" > /tmp/conflicts.json
+
+          echo "conflict_count=$CONFLICT" >> "$GITHUB_OUTPUT"
+          echo "success_count=$SUCCESS" >> "$GITHUB_OUTPUT"
+          echo "total=$TOTAL" >> "$GITHUB_OUTPUT"
+
+          echo ""
+          echo "========================================="
+          echo "Conflict detection results:"
+          echo "   Can cherry-pick: $SUCCESS"
+          echo "   Need Copilot:    $CONFLICT"
+          echo "========================================="
+
+      # ============================================================
+      # Step 2: Group conflicts by module
+      # ============================================================
+      - name: Group conflicts by module
+        id: groups
+        if: steps.conflicts.outputs.conflict_count != '0'
+        run: |
+          MAX_PER_GROUP=5
+          jq --argjson max "$MAX_PER_GROUP" '
+            group_by(.module)
+            | [.[] | {
+                module: .[0].module,
+                commits: .,
+                count: length,
+                priorities: [.[].priority] | unique | join(",")
+              }]
+            | [.[] |
+                if .count <= $max then .
+                else
+                  range(0; .count; $max) as $i |
+                  {
+                    module: (.module + (if $i > 0 then "-part\(($i / $max) + 1 | floor)" else "" end)),
+                    commits: .commits[$i:$i+$max],
+                    count: ([.count - $i, $max] | min),
+                    priorities: .commits[$i:$i+$max] | [.[].priority] | unique | join(",")
+                  }
+                end
+              ]
+            | sort_by(.priorities)
+          ' /tmp/conflicts.json > /tmp/groups.json
+
+          GROUP_COUNT=$(jq 'length' /tmp/groups.json)
+          echo "group_count=$GROUP_COUNT" >> "$GITHUB_OUTPUT"
+
+          echo ""
+          echo "Groups ($GROUP_COUNT):"
+          jq -r '.[] | "  [\(.module)] \(.count) commits (\(.priorities))"' /tmp/groups.json
+
+      # ============================================================
+      # Step 3: Preview or create Issues
+      # ============================================================
+      - name: Preview mode
+        if: inputs.dry_run && steps.conflicts.outputs.conflict_count != '0'
+        run: |
+          {
+            echo "## Copilot Resolve Preview"
+            echo ""
+            echo "### Conflict Detection"
+            echo "| Metric | Count |"
+            echo "|--------|-------|"
+            echo "| Can cherry-pick | ${{ steps.conflicts.outputs.success_count }} |"
+            echo "| Need Copilot | ${{ steps.conflicts.outputs.conflict_count }} |"
+            echo ""
+            echo "### Grouping Plan (${{ steps.groups.outputs.group_count }} groups)"
+            echo ""
+            jq -r '
+              .[] |
+              "#### Module: \(.module) (\(.count) commits)\n" +
+              "| Priority | SHA | Description |\n|----------|-----|-------------|\n" +
+              ([.commits[] | "| \(.priority) | `\(.sha[:10])` | \(.message) |"] | join("\n")) +
+              "\n"
+            ' /tmp/groups.json
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Create Copilot Issues
+        if: ${{ !inputs.dry_run && steps.conflicts.outputs.conflict_count != '0' }}
+        id: create
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+        run: |
+          chmod +x scripts/upstream-copilot-resolve.sh
+
+          ARGS="--groups /tmp/groups.json"
+          ARGS="$ARGS --from ${{ steps.tags.outputs.from }}"
+          ARGS="$ARGS --to ${{ steps.tags.outputs.to }}"
+          ARGS="$ARGS --repo $GITHUB_REPOSITORY"
+
+          MAX_ISSUES=${{ inputs.max_issues }}
+          if [ "$MAX_ISSUES" -gt 0 ]; then
+            ARGS="$ARGS --max-issues $MAX_ISSUES"
+          fi
+
+          PARENT="${{ inputs.issue_number }}"
+          if [ -n "$PARENT" ]; then
+            ARGS="$ARGS --parent-issue $PARENT"
+          fi
+
+          RESULT=$(./scripts/upstream-copilot-resolve.sh $ARGS)
+          echo "$RESULT"
+
+          CREATED=$(echo "$RESULT" | jq -r '.created_count')
+          ISSUES=$(echo "$RESULT" | jq -r '.created_issues')
+          echo "created_count=$CREATED" >> "$GITHUB_OUTPUT"
+          echo "created_issues=$ISSUES" >> "$GITHUB_OUTPUT"
+
+      # ============================================================
+      # Step 4: Report to parent Issue
+      # ============================================================
+      - name: Report to parent Issue
+        if: ${{ !inputs.dry_run && inputs.issue_number != '' && steps.conflicts.outputs.conflict_count != '0' }}
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+        run: |
+          ISSUE="${{ inputs.issue_number }}"
+          CREATED="${{ steps.create.outputs.created_count }}"
+          ISSUES="${{ steps.create.outputs.created_issues }}"
+
+          printf '## Copilot Agent 冲突解决已启动\n\n' > /tmp/parent-comment.md
+          printf '| 指标 | 数量 |\n|------|------|\n' >> /tmp/parent-comment.md
+          printf '| 可直接 cherry-pick | %s |\n' "${{ steps.conflicts.outputs.success_count }}" >> /tmp/parent-comment.md
+          printf '| 需 Copilot 处理 | %s |\n' "${{ steps.conflicts.outputs.conflict_count }}" >> /tmp/parent-comment.md
+          printf '| 已创建 Copilot Issue | %s 组 |\n\n' "$CREATED" >> /tmp/parent-comment.md
+          printf '### Copilot Issue 列表\n\n' >> /tmp/parent-comment.md
+          printf '已分配给 Copilot Agent: %s\n\n' "$ISSUES" >> /tmp/parent-comment.md
+          jq -r '.[] | "- **\(.module)** (\(.count) commits, \(.priorities))"' /tmp/groups.json >> /tmp/parent-comment.md
+          printf '\n> Copilot Agent 将自动为每个 Issue 创建 PR。完成后请人工审查并合并。\n' >> /tmp/parent-comment.md
+
+          gh issue comment "$ISSUE" -R "$GITHUB_REPOSITORY" --body-file /tmp/parent-comment.md
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## Copilot Resolve Summary"
+            echo ""
+            echo "| Metric | Count |"
+            echo "|--------|-------|"
+            echo "| Total commits | ${{ steps.conflicts.outputs.total }} |"
+            echo "| Can cherry-pick | ${{ steps.conflicts.outputs.success_count }} |"
+            echo "| Need Copilot | ${{ steps.conflicts.outputs.conflict_count }} |"
+            GCOUNT="${{ steps.groups.outputs.group_count }}"
+            if [ -n "$GCOUNT" ] && [ "$GCOUNT" != "0" ]; then
+              echo "| Groups | $GCOUNT |"
+            fi
+            echo ""
+            if [ "${{ inputs.dry_run }}" = "true" ]; then
+              echo "> Preview mode - no Issues created"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

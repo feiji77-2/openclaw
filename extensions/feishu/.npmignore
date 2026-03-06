@@ -1,0 +1,23 @@
+# Source files (included in dist/)
+# Use /src/ to only exclude root src/, not dist/src/
+/src/
+/index.ts
+*.test.ts
+
+# Config files
+tsconfig.json
+.eslintrc.*
+
+# Development
+node_modules/
+.pnpm-debug.log
+*.tsbuildinfo
+
+# Git
+.git*
+.github/
+
+# Misc
+.DS_Store
+*.swp
+*.swo

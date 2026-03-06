@@ -1,0 +1,26 @@
+FROM debian:bookworm-slim
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+    bash \
+    ca-certificates \
+    chromium \
+    curl \
+    fonts-liberation \
+    fonts-noto-color-emoji \
+    git \
+    jq \
+    novnc \
+    python3 \
+    socat \
+    websockify \
+    x11vnc \
+    xvfb \
+  && rm -rf /var/lib/apt/lists/*
+
+# Configure git to use HTTPS for GitHub (fixes libsignal-node SSH errors)
+RUN git config --global url."https://github.com/".insteadOf ssh://git@github.com/
+RUN git config --global url."https://".insteadOf git://
+
