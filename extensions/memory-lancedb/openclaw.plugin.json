@@ -1,0 +1,87 @@
+{
+  "id": "memory-lancedb",
+  "kind": "memory",
+  "uiHints": {
+    "embedding.apiKey": {
+      "label": "Embedding API Key",
+      "sensitive": true,
+      "placeholder": "sk-proj-...",
+      "help": "API key for embeddings (OpenAI or Doubao). You can also use ${OPENAI_API_KEY} or ${VOLCENGINE_API_KEY}."
+    },
+    "embedding.model": {
+      "label": "Embedding Model",
+      "placeholder": "text-embedding-3-small",
+      "help": "Embedding model to use (e.g. text-embedding-3-small, doubao-embedding-vision-251215)"
+    },
+    "embedding.provider": {
+      "label": "Embedding Provider",
+      "placeholder": "openai",
+      "help": "Embedding provider: 'openai' (default) or 'doubao'."
+    },
+    "dbPath": {
+      "label": "Database Path",
+      "placeholder": "~/.openclaw/memory/lancedb",
+      "advanced": true
+    },
+    "autoCapture": {
+      "label": "Auto-Capture",
+      "help": "Automatically capture important information from conversations"
+    },
+    "autoRecall": {
+      "label": "Auto-Recall",
+      "help": "Automatically inject relevant memories into context"
+    },
+    "storageOptions": {
+      "label": "Storage Options",
+      "advanced": true,
+      "help": "Storage configuration options (access_key, secret_key, endpoint, etc.)"
+    }
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "embedding": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "apiKey": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string",
+            "enum": [
+              "text-embedding-3-small",
+              "text-embedding-3-large",
+              "doubao-embedding-vision-251215"
+            ]
+          },
+          "provider": {
+            "type": "string",
+            "enum": ["openai", "doubao"]
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": ["apiKey"]
+      },
+      "dbPath": {
+        "type": "string"
+      },
+      "autoCapture": {
+        "type": "boolean"
+      },
+      "autoRecall": {
+        "type": "boolean"
+      },
+      "storageOptions": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      }
+    },
+    "required": ["embedding"]
+  }
+}

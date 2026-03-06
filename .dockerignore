@@ -1,0 +1,106 @@
+# Git and version control
+.git
+.gitignore
+.gitattributes
+.worktrees
+
+# Build tools cache
+.bun-cache
+.bun
+.turbo
+**/.turbo
+.cache
+**/.cache
+.pnpm-store
+**/.pnpm-store
+
+# Node modules (will be reinstalled)
+node_modules
+**/node_modules
+
+# Temporary files
+.tmp
+**/.tmp
+tmp
+**/tmp
+*.log
+
+# OS files
+.DS_Store
+**/.DS_Store
+.AppleDouble
+Thumbs.db
+
+# IDE and editor files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.env.local
+.env.*.local
+
+# Media files (large, not needed in Docker)
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.mp4
+*.mov
+*.wav
+*.mp3
+*.pdf
+
+# Build artifacts (will be regenerated)
+dist
+# extensions/*/dist 需要保留（插件预编译产物）
+!extensions/*/dist
+!extensions/*/dist/**
+apps/macos/.build
+apps/ios/build
+**/*.trace
+.next
+**/.next
+
+# Test and coverage files
+coverage
+**/coverage
+*.test.*
+*.spec.*
+test/
+tests/
+
+# Large app trees not needed for CLI build
+apps/
+assets/
+Peekaboo/
+Swabble/
+Core/
+Users/
+vendor/
+
+# CI/CD and development files
+.github
+.gitlab-ci.yml
+.circleci
+Jenkinsfile
+.env
+.env.example
+# scripts/ 需要保留给 Dockerfile 使用
+# docs/ 需要保留运行时使用（包含 templates）
+
+# 但保留 extensions/ 目录中的源代码和编译结果（plugins 必需）
+# 只排除 extensions 中的开发文件
+# extensions/*/node_modules 会在构建时自动安装
+# extensions/*/.turbo 和其他缓存已通过上面的规则排除
+
+# Package manager lock files (will be regenerated)
+yarn.lock
+package-lock.json
+
+# Misc
+README.md
+LICENSE
+CHANGELOG.md
+CONTRIBUTING.md

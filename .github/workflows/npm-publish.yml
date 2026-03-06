@@ -1,0 +1,64 @@
+name: Publish to npm
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.23.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      - name: Build UI
+        run: pnpm ui:build
+
+      - name: Determine npm tag
+        id: npm-tag
+        run: |
+          # Extract version from git tag (e.g., v0.1.6-test.1 -> 0.1.6-test.1)
+          GIT_TAG=${GITHUB_REF#refs/tags/v}
+          echo "Git tag version: $GIT_TAG"
+          
+          if [[ "$GIT_TAG" == *"-test"* ]]; then
+            echo "tag=test" >> $GITHUB_OUTPUT
+            echo "Publishing to test channel"
+          elif [[ "$GIT_TAG" == *"-beta"* ]]; then
+            echo "tag=beta" >> $GITHUB_OUTPUT
+            echo "Publishing to beta channel"
+          else
+            echo "tag=latest" >> $GITHUB_OUTPUT
+            echo "Publishing to latest channel"
+          fi
+
+      - name: Publish to npm
+        run: pnpm publish --access public --no-git-checks --provenance --tag ${{ steps.npm-tag.outputs.tag }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

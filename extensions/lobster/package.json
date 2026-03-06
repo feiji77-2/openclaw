@@ -1,0 +1,11 @@
+{
+  "name": "@clawdbot/lobster",
+  "version": "0.1.6",
+  "description": "Lobster workflow tool plugin (typed pipelines + resumable approvals)",
+  "type": "module",
+  "clawdbot": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}

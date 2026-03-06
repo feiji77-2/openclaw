@@ -1,0 +1,322 @@
+name: Upstream Cherry-Pick
+# 从上游 cherry-pick 指定优先级的修复到本 fork
+# 支持: 手动触发 / upstream-monitor 自动调用
+
+on:
+  workflow_dispatch:
+    inputs:
+      from_tag:
+        description: '起始版本 (auto = 从 last-upstream-tag 自动读取)'
+        type: string
+        default: 'auto'
+      to_tag:
+        description: '目标版本 (latest = 上游最新 tag)'
+        type: string
+        default: 'latest'
+      priority:
+        description: '合并优先级'
+        type: choice
+        options:
+          - 'P0'
+          - 'P0,P1'
+          - 'P0,P1,P2'
+        default: 'P0,P1'
+      dry_run:
+        description: '仅预览，不执行'
+        type: boolean
+        default: true
+      skip_build:
+        description: '跳过构建验证 (PR CI 会验证)'
+        type: boolean
+        default: false
+      issue_number:
+        description: '关联 Issue 编号 (可选，用于结果回报)'
+        type: string
+        default: ''
+
+  # 被 upstream-monitor 自动调用
+  workflow_call:
+    inputs:
+      from_tag:
+        type: string
+        default: 'auto'
+      to_tag:
+        type: string
+        default: 'latest'
+      priority:
+        type: string
+        default: 'P0,P1'
+      dry_run:
+        type: boolean
+        default: false
+      skip_build:
+        type: boolean
+        default: true
+      issue_number:
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  actions: write
+
+jobs:
+  cherry-pick:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup upstream remote
+        run: |
+          git remote add upstream https://github.com/openclaw/openclaw.git 2>/dev/null || true
+          git fetch upstream --tags --force
+          git fetch upstream main
+
+      - name: Resolve tags
+        id: tags
+        run: |
+          FROM="${{ inputs.from_tag }}"
+          TO="${{ inputs.to_tag }}"
+
+          # 自动解析 from_tag
+          if [ "$FROM" = "auto" ] || [ -z "$FROM" ]; then
+            if [ -f ".github/last-upstream-tag" ]; then
+              FROM=$(cat .github/last-upstream-tag | tr -d '[:space:]')
+              echo "Auto-resolved from_tag: $FROM"
+            else
+              echo "::error::No .github/last-upstream-tag file found. Please specify from_tag manually."
+              exit 1
+            fi
+          fi
+
+          # 自动解析 to_tag
+          if [ "$TO" = "latest" ] || [ -z "$TO" ]; then
+            TO=$(git tag -l 'v*' --sort=-version:refname | grep -v '-' | head -1)
+            echo "Auto-resolved to_tag: $TO"
+          fi
+
+          if [ "$FROM" = "$TO" ]; then
+            echo "from_tag == to_tag ($FROM), nothing to do"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "from=$FROM" >> "$GITHUB_OUTPUT"
+          echo "to=$TO" >> "$GITHUB_OUTPUT"
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+          echo "Range: $FROM → $TO"
+
+      - name: Download AI-refined commits (from upstream-monitor)
+        id: artifact
+        if: steps.tags.outputs.skip != 'true' && github.event_name != 'workflow_dispatch'
+        uses: actions/download-artifact@v4
+        with:
+          name: refined-commits
+          path: /tmp/artifact/
+        continue-on-error: true
+
+      - name: Load commits mapping
+        if: steps.tags.outputs.skip != 'true'
+        run: |
+          if [ -f /tmp/artifact/commits.json ]; then
+            echo "✅ 使用 AI 审查后的 commit 分类"
+            cp /tmp/artifact/commits.json /tmp/extract-result.json
+          else
+            echo "ℹ️ 无 artifact（手动触发），使用脚本规则分类"
+            chmod +x scripts/upstream-extract-commits.sh
+            ./scripts/upstream-extract-commits.sh \
+              "${{ steps.tags.outputs.from }}" \
+              "${{ steps.tags.outputs.to }}" \
+              > /tmp/extract-result.json 2>/tmp/extract.log
+            cat /tmp/extract.log
+          fi
+
+          echo "=== 提取摘要 ==="
+          jq -r 'group_by(.action) | .[] | "\(.[0].action): \(length) 个"' /tmp/extract-result.json
+
+      - name: Preview changes
+        if: inputs.dry_run && steps.tags.outputs.skip != 'true'
+        run: |
+          P_FILTER=$(echo "${{ inputs.priority }}" | tr ',' '|')
+          {
+            echo "## 🔍 预览: ${{ steps.tags.outputs.from }} → ${{ steps.tags.outputs.to }}"
+            echo ""
+            echo "### 筛选优先级: ${{ inputs.priority }}"
+            echo ""
+            echo "| 优先级 | Commit | 描述 | 类别 | 风险 |"
+            echo "|--------|--------|------|------|------|"
+            jq -r --arg p "$P_FILTER" \
+              '.[] | select(.action == "MERGE" and (.priority | test("^(\($p))$"))) |
+              "| \(.priority) | `\(.sha[:10])` | \(.message) | \(.category) | \(.conflict_risk) |"' \
+              /tmp/extract-result.json
+            echo ""
+            TOTAL=$(jq --arg p "$P_FILTER" \
+              '[.[] | select(.action == "MERGE" and (.priority | test("^(\($p))$")))] | length' \
+              /tmp/extract-result.json)
+            echo "**总计: $TOTAL 个 commit 待 cherry-pick**"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Execute cherry-pick
+        if: ${{ !inputs.dry_run && steps.tags.outputs.skip != 'true' }}
+        id: pick
+        run: |
+          git config user.name "upstream-merge[bot]"
+          git config user.email "bot@openclaw-cn.dev"
+
+          # 清理 extract 步骤产生的文件，确保工作区干净
+          git checkout -- . 2>/dev/null || true
+          git clean -fd .github/upstream-commits/ 2>/dev/null || true
+
+          chmod +x scripts/upstream-cherry-pick.sh
+
+          ARGS="--map /tmp/extract-result.json --priority ${{ inputs.priority }}"
+          if [ "${{ inputs.skip_build }}" = "true" ]; then
+            ARGS="$ARGS --skip-build"
+          fi
+
+          # 不让 cherry-pick 失败阻止后续步骤
+          set +e
+          ./scripts/upstream-cherry-pick.sh $ARGS 2>&1 | tee /tmp/cherry-pick.log
+          PICK_EXIT=$?
+          set -e
+          echo "pick_exit=$PICK_EXIT" >> "$GITHUB_OUTPUT"
+
+          # 收集结果
+          BRANCH=$(git branch --show-current)
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+
+          if [[ "$BRANCH" == upstream-cherry-pick/* ]]; then
+            COUNT=$(git rev-list main.."$BRANCH" --count 2>/dev/null || echo "0")
+            echo "commit_count=$COUNT" >> "$GITHUB_OUTPUT"
+            echo "has_commits=$( [ "$COUNT" -gt 0 ] && echo true || echo false )" >> "$GITHUB_OUTPUT"
+          else
+            echo "commit_count=0" >> "$GITHUB_OUTPUT"
+            echo "has_commits=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create Pull Request
+        if: ${{ !inputs.dry_run && steps.pick.outputs.has_commits == 'true' }}
+        id: pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="${{ steps.pick.outputs.branch }}"
+          FROM="${{ steps.tags.outputs.from }}"
+          TO="${{ steps.tags.outputs.to }}"
+          PRIORITY="${{ inputs.priority }}"
+          COUNT="${{ steps.pick.outputs.commit_count }}"
+
+          git push -u origin "$BRANCH"
+
+          {
+            echo "## 上游 Cherry-Pick: $FROM → $TO"
+            echo ""
+            echo "### 合并内容"
+            echo "- 优先级: **$PRIORITY**"
+            echo "- 成功 cherry-pick: **$COUNT** 个 commit"
+            echo ""
+            echo "### Cherry-pick 日志 (最后 30 行)"
+            echo '```'
+            tail -30 /tmp/cherry-pick.log
+            echo '```'
+            echo ""
+            echo "### 检查项"
+            echo "- [ ] 构建通过"
+            echo "- [ ] 测试通过"
+            echo "- [ ] CN 定制未被覆盖 (package.json, docs/, feishu/)"
+          } > /tmp/pr-body.md
+
+          gh label create upstream --color "0075ca" --force -R "$GITHUB_REPOSITORY" 2>&1 || true
+
+          PR_URL=$(gh pr create -R "$GITHUB_REPOSITORY" \
+            --title "chore: upstream cherry-pick $PRIORITY ($FROM → $TO)" \
+            --body-file /tmp/pr-body.md \
+            --label "upstream" \
+            --base main)
+
+          PR_NUM=$(echo "$PR_URL" | grep -oE '[0-9]+$')
+          echo "pr_number=$PR_NUM" >> "$GITHUB_OUTPUT"
+          echo "pr_url=$PR_URL" >> "$GITHUB_OUTPUT"
+          echo "Created PR #$PR_NUM"
+
+      - name: Report results to Issue
+        if: ${{ !inputs.dry_run && inputs.issue_number != '' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ISSUE="${{ inputs.issue_number }}"
+          PR_NUM="${{ steps.pr.outputs.pr_number }}"
+          COUNT="${{ steps.pick.outputs.commit_count }}"
+
+          {
+            echo "## 🤖 自动 Cherry-Pick 完成"
+            echo ""
+            if [ -n "$PR_NUM" ]; then
+              echo "✅ **PR: #$PR_NUM**"
+              echo "- 成功合入: **$COUNT** 个 commit"
+            else
+              echo "ℹ️ 未创建 PR — 所有 commit 已被跳过或存在冲突"
+            fi
+            echo ""
+
+            # 提取成功/失败/跳过数
+            SUCCESS=$(grep -oP '✅ 成功: \K[0-9]+' /tmp/cherry-pick.log 2>/dev/null || echo "0")
+            FAILED=$(grep -oP '❌ 失败: \K[0-9]+' /tmp/cherry-pick.log 2>/dev/null || echo "0")
+            SKIPPED=$(grep -oP '⏭️  跳过: \K[0-9]+' /tmp/cherry-pick.log 2>/dev/null || echo "0")
+
+            echo "| 结果 | 数量 |"
+            echo "|------|------|"
+            echo "| ✅ 成功 | $SUCCESS |"
+            echo "| ❌ 冲突 | $FAILED |"
+            echo "| ⏭️ 跳过 (本地保护) | $SKIPPED |"
+            echo ""
+
+            if [ "$FAILED" -gt 0 ]; then
+              echo "### ⚠️ 需手动处理的 commit"
+              echo ""
+              echo '```bash'
+              grep 'git cherry-pick' /tmp/cherry-pick.log 2>/dev/null || echo "# 请查看 Actions 日志获取详情"
+              echo '```'
+            fi
+          } > /tmp/issue-comment.md
+
+          gh issue comment "$ISSUE" -R "$GITHUB_REPOSITORY" --body-file /tmp/issue-comment.md
+          echo "Commented on issue #$ISSUE"
+
+      # ============================================================
+      # 冲突 commit 交给 Copilot Agent 处理
+      # ============================================================
+      - name: Trigger Copilot resolve for conflicts
+        if: ${{ !inputs.dry_run && steps.tags.outputs.skip != 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          FAILED=$(grep -oP '❌ 失败: \K[0-9]+' /tmp/cherry-pick.log 2>/dev/null || echo "0")
+          PICK_EXIT="${{ steps.pick.outputs.pick_exit }}"
+
+          # 兜底：如果 cherry-pick.sh 异常退出（如工作区脏）且未产生统计，
+          # 检查 extract 中 MERGE commit 数量作为冲突数
+          if [ "$FAILED" = "0" ] && [ "${PICK_EXIT:-0}" != "0" ]; then
+            echo "⚠️ cherry-pick.sh 异常退出 (code=$PICK_EXIT)，从 extract 结果估算冲突数"
+            FAILED=$(jq '[.[] | select(.action=="MERGE")] | length' /tmp/extract-result.json 2>/dev/null || echo "0")
+            echo "   估算冲突 commit: $FAILED"
+          fi
+
+          if [ "$FAILED" -gt 0 ]; then
+            echo "🤖 检测到 $FAILED 个冲突 commit，触发 Copilot Agent 处理..."
+            gh workflow run upstream-copilot-resolve.yml \
+              -R "$GITHUB_REPOSITORY" \
+              --field from_tag="${{ steps.tags.outputs.from }}" \
+              --field to_tag="${{ steps.tags.outputs.to }}" \
+              --field priority="${{ inputs.priority }}" \
+              --field issue_number="${{ inputs.issue_number }}" \
+              --field max_issues=0 \
+              --field dry_run=false
+            echo "✅ 已触发 upstream-copilot-resolve workflow"
+          else
+            echo "✅ 无冲突 commit，无需 Copilot 处理"
+          fi

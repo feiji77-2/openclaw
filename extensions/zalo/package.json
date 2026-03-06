@@ -1,0 +1,33 @@
+{
+  "name": "@clawdbot/zalo",
+  "version": "0.1.6",
+  "description": "Clawdbot Zalo channel plugin",
+  "type": "module",
+  "dependencies": {
+    "clawdbot": "workspace:openclaw-cn@*",
+    "undici": "7.19.0"
+  },
+  "clawdbot": {
+    "extensions": [
+      "./index.ts"
+    ],
+    "channel": {
+      "id": "zalo",
+      "label": "Zalo",
+      "selectionLabel": "Zalo (Bot API)",
+      "docsPath": "/channels/zalo",
+      "docsLabel": "zalo",
+      "blurb": "Vietnam-focused messaging platform with Bot API.",
+      "aliases": [
+        "zl"
+      ],
+      "order": 80,
+      "quickstartAllowFrom": true
+    },
+    "install": {
+      "npmSpec": "@clawdbot/zalo",
+      "localPath": "extensions/zalo",
+      "defaultChoice": "npm"
+    }
+  }
+}

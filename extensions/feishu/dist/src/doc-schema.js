@@ -1,0 +1,57 @@
+import { Type } from "@sinclair/typebox";
+export const FeishuDocSchema = Type.Union([
+  Type.Object({
+    action: Type.Literal("read"),
+    doc_token: Type.String({ description: "Document token (extract from URL /docx/XXX)" }),
+  }),
+  Type.Object({
+    action: Type.Literal("write"),
+    doc_token: Type.String({ description: "Document token" }),
+    content: Type.String({
+      description: "Markdown content to write (replaces entire document content)",
+    }),
+  }),
+  Type.Object({
+    action: Type.Literal("append"),
+    doc_token: Type.String({ description: "Document token" }),
+    content: Type.String({ description: "Markdown content to append to end of document" }),
+  }),
+  Type.Object({
+    action: Type.Literal("create"),
+    title: Type.String({ description: "Document title" }),
+    folder_token: Type.Optional(Type.String({ description: "Target folder token (optional)" })),
+    content: Type.Optional(
+      Type.String({
+        description:
+          "Markdown content to write into the document after creation. If provided, the document will be created and filled in one step.",
+      }),
+    ),
+    sender_open_id: Type.Optional(
+      Type.String({
+        description:
+          "The open_id (ou_xxx) of the user who requested document creation. When provided, the user will automatically be granted full_access permission to the new document.",
+      }),
+    ),
+  }),
+  Type.Object({
+    action: Type.Literal("list_blocks"),
+    doc_token: Type.String({ description: "Document token" }),
+  }),
+  Type.Object({
+    action: Type.Literal("get_block"),
+    doc_token: Type.String({ description: "Document token" }),
+    block_id: Type.String({ description: "Block ID (from list_blocks)" }),
+  }),
+  Type.Object({
+    action: Type.Literal("update_block"),
+    doc_token: Type.String({ description: "Document token" }),
+    block_id: Type.String({ description: "Block ID (from list_blocks)" }),
+    content: Type.String({ description: "New text content" }),
+  }),
+  Type.Object({
+    action: Type.Literal("delete_block"),
+    doc_token: Type.String({ description: "Document token" }),
+    block_id: Type.String({ description: "Block ID" }),
+  }),
+]);
+//# sourceMappingURL=doc-schema.js.map
