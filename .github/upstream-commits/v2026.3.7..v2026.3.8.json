@@ -1,0 +1,4464 @@
+[
+  {
+    "sha": "3caab9260cb0a0064e6a37b2de3bedc8a547e599",
+    "message": "test: narrow gateway loop signal harness",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P4",
+    "category": "TEST-ONLY",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/cli/gateway-cli/run-loop.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "d0847ee32290026bd34e4ae137d74db0b98da71f",
+    "message": "chore: prepare 2026.3.8 npm release",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CHORE",
+    "conflict_risk": "MEDIUM",
+    "files": [
+      "CHANGELOG.md",
+      "package.json"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "1d3dde8d21173bda3947ad67d6b452e465bf905a",
+    "message": "fix(update): re-enable launchd service before updater bootstrap",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/cli/update-cli/restart-helper.test.ts",
+      "src/cli/update-cli/restart-helper.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "cc0f30f5fb64b06c38a41d7b892f4f2933f2d288",
+    "message": "test: fix windows runtime and restart loop harnesses",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P4",
+    "category": "TEST-ONLY",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/cli/gateway-cli/run-loop.test.ts",
+      "src/node-host/invoke-system-run.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "250d3c949eb7b4c4689eb294477536628de509ed",
+    "message": "chore: update appcast for 2026.3.8-beta.1",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CHORE",
+    "conflict_risk": "LOW",
+    "files": [
+      "appcast.xml"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "5fca4c0de0c1f7de278d7d120b837c23fca6c984",
+    "message": "chore: prepare 2026.3.8-beta.1 release",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CHORE",
+    "conflict_risk": "HIGH",
+    "files": [
+      "CHANGELOG.md",
+      "extensions/acpx/package.json",
+      "extensions/bluebubbles/package.json",
+      "extensions/copilot-proxy/package.json",
+      "extensions/diagnostics-otel/package.json",
+      "extensions/diffs/package.json",
+      "extensions/discord/package.json",
+      "extensions/feishu/package.json",
+      "extensions/google-gemini-cli-auth/package.json",
+      "extensions/googlechat/package.json",
+      "extensions/imessage/package.json",
+      "extensions/irc/package.json",
+      "extensions/line/package.json",
+      "extensions/llm-task/package.json",
+      "extensions/lobster/package.json",
+      "extensions/matrix/CHANGELOG.md",
+      "extensions/matrix/package.json",
+      "extensions/mattermost/package.json",
+      "extensions/memory-core/package.json",
+      "extensions/memory-lancedb/package.json",
+      "extensions/minimax-portal-auth/package.json",
+      "extensions/msteams/CHANGELOG.md",
+      "extensions/msteams/package.json",
+      "extensions/nextcloud-talk/package.json",
+      "extensions/nostr/CHANGELOG.md",
+      "extensions/nostr/package.json",
+      "extensions/open-prose/package.json",
+      "extensions/signal/package.json",
+      "extensions/slack/package.json",
+      "extensions/synology-chat/package.json",
+      "extensions/telegram/package.json",
+      "extensions/tlon/package.json",
+      "extensions/twitch/CHANGELOG.md",
+      "extensions/twitch/package.json",
+      "extensions/voice-call/CHANGELOG.md",
+      "extensions/voice-call/package.json",
+      "extensions/whatsapp/package.json",
+      "extensions/zalo/CHANGELOG.md",
+      "extensions/zalo/package.json",
+      "extensions/zalouser/CHANGELOG.md",
+      "extensions/zalouser/package.json",
+      "package.json"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "66c581c64c1ce35a6ca961e995bbe398987fd398",
+    "message": "fix: normalize windows runtime shim executables",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/infra/exec-wrapper-resolution.test.ts",
+      "src/infra/exec-wrapper-resolution.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "912aa8744aa83cc1fcead8058645cd06aa4bfe89",
+    "message": "test: fix Windows fake runtime bin fixtures",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P4",
+    "category": "TEST-ONLY",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/node-host/invoke-system-run-plan.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "8d2d6db9ada1dc1afe482cf7e52d4526c2cf5d6c",
+    "message": "test: fix Node 24+ test runner and subagent registry mocks",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P4",
+    "category": "TEST-ONLY",
+    "conflict_risk": "LOW",
+    "files": [
+      "scripts/test-parallel.mjs",
+      "src/agents/subagent-registry.archive.e2e.test.ts",
+      "src/agents/subagent-registry.lifecycle-retry-grace.e2e.test.ts",
+      "src/agents/subagent-registry.nested.e2e.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "2d55ad05f397d9a20df0f677498f60094a59b749",
+    "message": "docs: move 2026.3.8 entries back to unreleased",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CHORE",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "9631f4665cea3919086100c30b559dca5a500b15",
+    "message": "chore: refresh secrets baseline",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "UNUSED-CHANNEL",
+    "conflict_risk": "LOW",
+    "files": [
+      ".secrets.baseline"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "e2a1a4a3db7b70417e8e4d41c98a8ea24d353ff4",
+    "message": "build: sync pnpm lockfile",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "MEDIUM",
+    "files": [
+      "pnpm-lock.yaml"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "f82931ba8bafbab50403b7548b66a57157241292",
+    "message": "docs: reorder 2026.3.8 changelog by impact",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CHORE",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "17599a8ea21367b9df1765d6c4768edbdecc440a",
+    "message": "refactor: flatten supervisor marker hints",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/infra/supervisor-markers.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "e86b38f09d853b4b8a30c14b80305fcbd1e97935",
+    "message": "refactor: split cron startup catch-up flow",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/cron/service/timer.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "1d301f74a6a9262e5ec36e4725dffd4fbb49a3c1",
+    "message": "refactor: extract telegram polling session",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/telegram/monitor.ts",
+      "src/telegram/polling-session.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "2e79d821981bb9f1bf8cac8318b223b00b6316b5",
+    "message": "build: update app deps except carbon",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "MEDIUM",
+    "files": [
+      "extensions/matrix/package.json",
+      "package.json",
+      "pnpm-lock.yaml",
+      "src/agents/anthropic-payload-log.test.ts",
+      "src/agents/anthropic-payload-log.ts",
+      "src/agents/auth-profiles/oauth.ts",
+      "src/agents/openai-ws-stream.ts",
+      "src/agents/pi-embedded-runner-extraparams.live.test.ts",
+      "src/agents/pi-embedded-runner-extraparams.test.ts",
+      "src/agents/pi-embedded-runner/anthropic-stream-wrappers.ts",
+      "src/agents/pi-embedded-runner/extra-params.kilocode.test.ts",
+      "src/agents/pi-embedded-runner/extra-params.openrouter-cache-control.test.ts",
+      "src/agents/pi-embedded-runner/extra-params.ts",
+      "src/agents/pi-embedded-runner/extra-params.zai-tool-stream.test.ts",
+      "src/agents/pi-embedded-runner/moonshot-stream-wrappers.ts",
+      "src/agents/pi-embedded-runner/openai-stream-wrappers.ts",
+      "src/agents/pi-embedded-runner/proxy-stream-wrappers.ts",
+      "src/agents/pi-embedded-runner/run/attempt.test.ts",
+      "src/agents/pi-embedded-runner/run/attempt.ts",
+      "src/commands/openai-codex-oauth.ts",
+      "src/providers/google-shared.ensures-function-call-comes-after-user-turn.test.ts",
+      "src/providers/google-shared.preserves-parameters-type-is-missing.test.ts",
+      "src/providers/google-shared.test-helpers.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "96d17f3cb19109424aca7b82074c33118984cdb9",
+    "message": "fix: stagger missed cron jobs on restart (#18925) (thanks @rexlunae)",
+    "pr": "#18925",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/cron/service.restart-catchup.test.ts",
+      "src/cron/service/timer.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "79853aca9c7f8b9d55dabacc288357b6a6e7eb6c",
+    "message": "fix(cron): stagger missed jobs on restart to prevent gateway overload",
+    "pr": "",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CRITICAL-BUG",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/cron/service.restart-catchup.test.ts",
+      "src/cron/service/state.ts",
+      "src/cron/service/timer.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "2d5e70f3e74d2b6c642f5028853ffc753d454356",
+    "message": "fix: abort telegram getupdates on shutdown (#23950) (thanks @Gkinthecodeland)",
+    "pr": "#23950",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/telegram/bot.create-telegram-bot.test.ts",
+      "src/telegram/bot.fetch-abort.test.ts",
+      "src/telegram/bot.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "6186f620d29ffa592fa11b379cd76fa757032e54",
+    "message": "fix(telegram): use manual signal forwarding to avoid cross-realm AbortSignal",
+    "pr": "",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CHANNEL-FIX",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/telegram/bot.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "2767907abf500f3eeca64f01075fc6a711a4a4c3",
+    "message": "fix(telegram): abort in-flight getUpdates fetch on shutdown",
+    "pr": "",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CHANNEL-FIX",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/telegram/bot.create-telegram-bot.test.ts",
+      "src/telegram/bot.ts",
+      "src/telegram/monitor.test.ts",
+      "src/telegram/monitor.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "9abf014f3502009faf9c73df5ca2cff719e54639",
+    "message": "fix(skills): pin validated download roots",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/agents/skills-install-download.ts",
+      "src/agents/skills-install.download.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "cf3a479bd1204f62eef7dd82b4aa328749ae6c91",
+    "message": "fix(node-host): bind bun and deno approval scripts",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/node-host/invoke-system-run-plan.test.ts",
+      "src/node-host/invoke-system-run-plan.ts",
+      "src/node-host/invoke-system-run.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "fd902b065148cf5ac6eab24fdd5b68377424d692",
+    "message": "fix: detect launchd supervision via xpc service name (#20555) (thanks @dimat)",
+    "pr": "#20555",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "cf796e2a223f90902fcd122e3c797acf20990255",
+    "message": "fix(gateway): detect launchd supervision via XPC_SERVICE_NAME",
+    "pr": "",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CRITICAL-BUG",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/infra/process-respawn.test.ts",
+      "src/infra/supervisor-markers.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "f84adcbe8826343011ccb8814d570a1aafd0a027",
+    "message": "fix: release gateway lock on restart failure + reply to Codex reviews",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/cli/gateway-cli/run-loop.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "f184e7811cf45f0526a05a6972524fce03b6534c",
+    "message": "fix: move config pre-flight before onNotLoaded in runServiceRestart (Codex P2)",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/cli/daemon-cli/lifecycle-core.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "c79a0dbdb4b4ee83712ee1e16bc575d7cdb0c8b2",
+    "message": "fix: address bot review feedback on #35862",
+    "pr": "#35862",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/cli/daemon-cli/lifecycle-core.ts",
+      "src/cli/gateway-cli/run-loop.ts"
+    ],
+    "related_commits": [
+      "335223af3291cd7d84d2d5e5ff014361b9cb71c5",
+      "6740cdf160a2b84f061de94c3c774a26e7de19e5",
+      "eea925b12b0f4f0a8dfa9a3680daf251bbca0c7c"
+    ]
+  },
+  {
+    "sha": "335223af3291cd7d84d2d5e5ff014361b9cb71c5",
+    "message": "test: add runServiceStart config pre-flight tests (#35862)",
+    "pr": "#35862",
+    "action": "SKIP",
+    "priority": "P4",
+    "category": "TEST-ONLY",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/cli/daemon-cli/lifecycle-core.config-guard.test.ts"
+    ],
+    "related_commits": [
+      "c79a0dbdb4b4ee83712ee1e16bc575d7cdb0c8b2",
+      "6740cdf160a2b84f061de94c3c774a26e7de19e5",
+      "eea925b12b0f4f0a8dfa9a3680daf251bbca0c7c"
+    ]
+  },
+  {
+    "sha": "6740cdf160a2b84f061de94c3c774a26e7de19e5",
+    "message": "fix(gateway): catch startup failure in run loop to prevent process exit (#35862)",
+    "pr": "#35862",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CRITICAL-BUG",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/cli/gateway-cli/run-loop.ts"
+    ],
+    "related_commits": [
+      "c79a0dbdb4b4ee83712ee1e16bc575d7cdb0c8b2",
+      "335223af3291cd7d84d2d5e5ff014361b9cb71c5",
+      "eea925b12b0f4f0a8dfa9a3680daf251bbca0c7c"
+    ]
+  },
+  {
+    "sha": "eea925b12b0f4f0a8dfa9a3680daf251bbca0c7c",
+    "message": "fix(gateway): validate config before restart to prevent crash + macOS permission loss (#35862)",
+    "pr": "#35862",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CRITICAL-BUG",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/cli/daemon-cli/lifecycle-core.config-guard.test.ts",
+      "src/cli/daemon-cli/lifecycle-core.ts"
+    ],
+    "related_commits": [
+      "c79a0dbdb4b4ee83712ee1e16bc575d7cdb0c8b2",
+      "335223af3291cd7d84d2d5e5ff014361b9cb71c5",
+      "6740cdf160a2b84f061de94c3c774a26e7de19e5"
+    ]
+  },
+  {
+    "sha": "88aee9161e0e6d32e810a25711e32a808a1777b2",
+    "message": "fix(msteams): enforce sender allowlists with route allowlists",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "UNUSED-CHANNEL",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "extensions/msteams/src/monitor-handler/message-handler.authz.test.ts",
+      "extensions/msteams/src/monitor-handler/message-handler.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "03a6e3b460a722c13aa843f1fe6c35f47064c764",
+    "message": "test(cron): cover owner-only tool availability",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P4",
+    "category": "TEST-ONLY",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/cron/isolated-agent/run.owner-auth.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "41e023a80b602195690c4b1a683436f1761d912f",
+    "message": "fix(cron): restore owner-only tools for isolated runs",
+    "pr": "",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CRITICAL-BUG",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/cron/isolated-agent/run.owner-auth.test.ts",
+      "src/cron/isolated-agent/run.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "93775ef6a484dfc3e55be2a57f7aba0cf829ede6",
+    "message": "fix(browser): enforce redirect-hop SSRF checks",
+    "pr": "",
+    "action": "MERGE",
+    "priority": "P0",
+    "category": "SECURITY",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/browser/navigation-guard.test.ts",
+      "src/browser/navigation-guard.ts",
+      "src/browser/pw-session.create-page.navigation-guard.test.ts",
+      "src/browser/pw-session.ts",
+      "src/browser/pw-tools-core.snapshot.navigate-guard.test.ts",
+      "src/browser/pw-tools-core.snapshot.ts",
+      "src/browser/server-context.remote-profile-tab-ops.suite.ts",
+      "src/browser/server-context.tab-ops.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "31402b8542a9ae3b6114dfcc35bd92a91bdf0abf",
+    "message": "fix: add changelog for restart timeout recovery (#40380) (thanks @dsantoreis)",
+    "pr": "#40380",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "4bb8104810fd515480f7c162b0b7bebe72f3ac01",
+    "message": "test(secrets): skip ACL-dependent runtime snapshot tests on windows",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P4",
+    "category": "TEST-ONLY",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/secrets/runtime.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "1d6a2d01656eee2bacf102988e177935b4884984",
+    "message": "fix(gateway): exit non-zero on restart shutdown timeout",
+    "pr": "",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CRITICAL-BUG",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/cli/gateway-cli/run-loop.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "44beb7be1fe7ef2553e48b2f160eb9546afeefcf",
+    "message": "fix(daemon): also enable LaunchAgent in repairLaunchAgentBootstrap",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/daemon/launchd.test.ts",
+      "src/daemon/launchd.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "69cd376e3b595d65d6706d66cef7d813089ac152",
+    "message": "fix(daemon): enable LaunchAgent before bootstrap on restart",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/daemon/launchd.test.ts",
+      "src/daemon/launchd.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "41eef15cdc477a1a6207b89a65a74bac6f6d4e0f",
+    "message": "test: fix windows secrets runtime ci",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P4",
+    "category": "TEST-ONLY",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/secrets/runtime.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "41450187ddf4e6f5bbbbd296d56c599d0612bbef",
+    "message": "fix: clear plugin discovery cache after plugin installation (openclaw#39752)",
+    "pr": "#39752",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/commands/onboarding/plugin-install.test.ts",
+      "src/commands/onboarding/plugin-install.ts",
+      "src/cron/isolated-agent/run.test-harness.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "a40c29b11a0246271d49a33e142e742c7f0e23da",
+    "message": "Fix cron text announce delivery for Telegram targets (#40575)",
+    "pr": "#40575",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/cron/isolated-agent.delivers-response-has-heartbeat-ok-but-includes.test.ts",
+      "src/cron/isolated-agent.direct-delivery-core-channels.test.ts",
+      "src/cron/isolated-agent.direct-delivery-forum-topics.test.ts",
+      "src/cron/isolated-agent.mocks.ts",
+      "src/cron/isolated-agent.skips-delivery-without-whatsapp-recipient-besteffortdeliver-true.test.ts",
+      "src/cron/isolated-agent.test-setup.ts",
+      "src/cron/isolated-agent/delivery-dispatch.double-announce.test.ts",
+      "src/cron/isolated-agent/delivery-dispatch.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "d4a960fcca2abea4612c50185768d622294b9b7a",
+    "message": "fix(matrix): restore robust DM routing without the memberCount heuristic (#19736)",
+    "pr": "#19736",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "extensions/matrix/src/matrix/monitor/direct.test.ts",
+      "extensions/matrix/src/matrix/monitor/direct.ts",
+      "extensions/matrix/src/matrix/monitor/handler.body-for-agent.test.ts",
+      "extensions/matrix/src/matrix/monitor/handler.ts",
+      "extensions/matrix/src/matrix/monitor/rooms.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "26e76f9a6149c78a62bcd1531ad58894e1677ea7",
+    "message": "fix: dedupe inbound Telegram DM replies per agent (#40519)",
+    "pr": "#40519",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/auto-reply/inbound.test.ts",
+      "src/auto-reply/reply/dispatch-from-config.test.ts",
+      "src/auto-reply/reply/inbound-dedupe.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "8befd88119e2dd6a871e5478a3910d30cd5533f6",
+    "message": "build(protocol): sync generated swift models",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/macos/Sources/OpenClawProtocol/GatewayModels.swift",
+      "apps/shared/OpenClawKit/Sources/OpenClawProtocol/GatewayModels.swift"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "99cbda83a2a27d38656e7d15e1a6adec626fd4b9",
+    "message": "fix(media): accept reader read result type",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/media/read-response-with-limit.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "e8775cda932fbe8c949cba925abdc8e419bb7829",
+    "message": "fix(agents): re-expose configured tools under restrictive profiles",
+    "pr": "",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CRITICAL-BUG",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/pi-tools.policy.test.ts",
+      "src/agents/pi-tools.policy.ts",
+      "src/plugins/config-state.test.ts",
+      "src/plugins/config-state.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "ef36cb8cbcbd8cf7b04a2a92e1782925f48ae1cf",
+    "message": "chore(acpx): move runtime test fixtures to test-utils (openclaw#40548)",
+    "pr": "#40548",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CHORE",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "extensions/acpx/src/runtime-internals/test-fixtures.ts",
+      "extensions/acpx/src/runtime.test.ts",
+      "extensions/acpx/src/test-utils/runtime-fixtures.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "f114a5c63877e42973e19c7cb89d665ccf4b48e9",
+    "message": "test: fix android talk config contract fixture",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P4",
+    "category": "TEST-ONLY",
+    "conflict_risk": "LOW",
+    "files": [
+      "test-fixtures/talk-config-contract.json"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "a438ff4397b3500fec0f263b81cdbebbaa55f79d",
+    "message": "fix(plugin-sdk): remove remaining bundled plugin src imports (openclaw#39638)",
+    "pr": "#39638",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "extensions/bluebubbles/src/monitor-normalize.ts",
+      "extensions/mattermost/src/mattermost/monitor.ts",
+      "extensions/nextcloud-talk/src/channel.ts",
+      "extensions/twitch/src/token.ts",
+      "extensions/twitch/src/types.ts",
+      "src/plugin-sdk/bluebubbles.ts",
+      "src/plugin-sdk/mattermost.ts",
+      "src/plugin-sdk/nextcloud-talk.ts",
+      "src/plugin-sdk/subpaths.test.ts",
+      "src/plugin-sdk/twitch.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "adec8b28bbb475ee882190818df590d6a5e49542",
+    "message": "alphabetize web search providers (#40259)",
+    "pr": "#40259",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "docs/tools/web.md",
+      "src/agents/tools/web-search.ts",
+      "src/commands/configure.wizard.ts",
+      "src/commands/onboard-search.ts",
+      "src/config/config.web-search-provider.test.ts",
+      "src/config/schema.help.ts",
+      "src/config/schema.labels.ts",
+      "src/config/types.tools.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "e3df94365b0a0a61e8503fd45c2d971dfdf4d2a1",
+    "message": "ACP: add optional ingress provenance receipts (#40473)",
+    "pr": "#40473",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "docs/cli/acp.md",
+      "src/acp/server.ts",
+      "src/acp/translator.prompt-prefix.test.ts",
+      "src/acp/translator.ts",
+      "src/acp/types.ts",
+      "src/auto-reply/reply/agent-runner-utils.ts",
+      "src/auto-reply/reply/get-reply-run.ts",
+      "src/auto-reply/reply/queue/types.ts",
+      "src/auto-reply/templating.ts",
+      "src/cli/acp-cli.ts",
+      "src/gateway/protocol/schema/agent.ts",
+      "src/gateway/protocol/schema/logs-chat.ts",
+      "src/gateway/server-methods/chat.directive-tags.test.ts",
+      "src/gateway/server-methods/chat.ts",
+      "src/sessions/input-provenance.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "4d501e4ccf2f38e722e6ec5e2adf0f9b733e05e7",
+    "message": "fix(telegram): add download timeout to prevent polling loop hang (#40098)",
+    "pr": "#40098",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CHANNEL-FIX",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/cli/daemon-cli/lifecycle.test.ts",
+      "src/media/fetch.test.ts",
+      "src/media/fetch.ts",
+      "src/media/read-response-with-limit.test.ts",
+      "src/media/read-response-with-limit.ts",
+      "src/telegram/bot/delivery.resolve-media.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "f6243916b51ca4b4131674fa2f6fa9d863314c01",
+    "message": "fix(models): use 1M context for openai-codex gpt-5.4 (#37876)",
+    "pr": "#37876",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/agents/model-compat.test.ts",
+      "src/agents/model-forward-compat.ts",
+      "src/agents/pi-embedded-runner/model.test-harness.ts",
+      "src/cli/daemon-cli/lifecycle.test.ts",
+      "src/commands/models/list.list-command.forward-compat.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "b34158086a4868947a6614003528ac2697cec84e",
+    "message": "docs(changelog): correct Control UI contributor credit (#40420)",
+    "pr": "#40420",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CHORE",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "eabda6e3a40186fb7e700e6bdf518418863a52dc",
+    "message": "fix(tests): correct security check failure",
+    "pr": "",
+    "action": "MERGE",
+    "priority": "P0",
+    "category": "SECURITY",
+    "conflict_risk": "LOW",
+    "files": [
+      ".secrets.baseline",
+      "src/secrets/runtime.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "6d5e142b93120f097cd2afc2467547754b836753",
+    "message": "Docker: improve build cache reuse (#40351)",
+    "pr": "#40351",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CI-CD",
+    "conflict_risk": "LOW",
+    "files": [
+      ".github/workflows/docker-release.yml",
+      "Dockerfile",
+      "Dockerfile.sandbox",
+      "Dockerfile.sandbox-browser",
+      "Dockerfile.sandbox-common",
+      "scripts/docker/cleanup-smoke/Dockerfile",
+      "scripts/docker/install-sh-e2e/Dockerfile",
+      "scripts/docker/install-sh-nonroot/Dockerfile",
+      "scripts/docker/install-sh-smoke/Dockerfile",
+      "scripts/e2e/Dockerfile",
+      "scripts/e2e/Dockerfile.qr-import",
+      "scripts/sandbox-common-setup.sh",
+      "src/docker-build-cache.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "4f42c03a49e18fdecc4a433a68dc95e12ff058c3",
+    "message": "gateway: fix global Control UI 404s for symlinked wrappers and bundled package roots (#40385)",
+    "pr": "#40385",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/cli/daemon-cli/lifecycle.test.ts",
+      "src/gateway/control-ui.auto-root.http.test.ts",
+      "src/gateway/control-ui.http.test.ts",
+      "src/gateway/control-ui.ts",
+      "src/gateway/server.control-ui-root.test.ts",
+      "src/gateway/server.impl.ts",
+      "src/infra/control-ui-assets.test.ts",
+      "src/infra/control-ui-assets.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "13bd3db307bc5a6194a0799893d0fab7030791dd",
+    "message": "chore(docs): drop refactor cleanup tracker",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/refactor/cleanup.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "ff4745fc3fb108e72e1d36922810695128e0bc1f",
+    "message": "refactor(models): split provider discovery helpers",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/refactor/cleanup.md",
+      "src/agents/models-config.providers.discovery.ts",
+      "src/agents/models-config.providers.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "c29b09874416f311fdb75333cf136d472986769f",
+    "message": "refactor(models): split models.json planning from writes",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/refactor/cleanup.md",
+      "src/agents/models-config.plan.ts",
+      "src/agents/models-config.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "24b53fcf4790a6fb4faf1a423ca6d38044883f0f",
+    "message": "refactor(agents): extract provider model normalization",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/refactor/cleanup.md",
+      "src/agents/pi-embedded-runner/model.provider-normalization.ts",
+      "src/agents/pi-embedded-runner/model.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "dfc18b7a2bdd217faf87e0188041d835c50c0dc6",
+    "message": "refactor(models): extract list row builders",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/refactor/cleanup.md",
+      "src/commands/models/list.list-command.forward-compat.test.ts",
+      "src/commands/models/list.list-command.ts",
+      "src/commands/models/list.rows.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "141738f717d19cc800508c39a2e73675b2bc8ec5",
+    "message": "refactor: harden browser runtime profile handling",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "HIGH",
+    "files": [
+      "extensions/bluebubbles/src/config-schema.ts",
+      "extensions/bluebubbles/src/runtime.ts",
+      "extensions/discord/src/channel.ts",
+      "extensions/discord/src/runtime.ts",
+      "extensions/feishu/src/runtime.ts",
+      "extensions/googlechat/src/channel.ts",
+      "extensions/googlechat/src/runtime.ts",
+      "extensions/imessage/src/runtime.ts",
+      "extensions/irc/src/runtime.ts",
+      "extensions/line/src/runtime.ts",
+      "extensions/matrix/src/runtime.ts",
+      "extensions/mattermost/src/runtime.ts",
+      "extensions/msteams/src/runtime.ts",
+      "extensions/nextcloud-talk/src/runtime.ts",
+      "extensions/nostr/src/runtime.ts",
+      "extensions/signal/src/runtime.ts",
+      "extensions/slack/src/channel.ts",
+      "extensions/slack/src/runtime.ts",
+      "extensions/synology-chat/src/runtime.ts",
+      "extensions/telegram/src/channel.ts",
+      "extensions/telegram/src/runtime.ts",
+      "extensions/tlon/src/runtime.ts",
+      "extensions/twitch/src/runtime.ts",
+      "extensions/whatsapp/src/runtime.ts",
+      "extensions/zalo/src/config-schema.ts",
+      "extensions/zalo/src/runtime.ts",
+      "extensions/zalouser/src/config-schema.ts",
+      "extensions/zalouser/src/runtime.ts",
+      "src/browser/client.ts",
+      "src/browser/control-service.ts",
+      "src/browser/errors.ts",
+      "src/browser/profile-capabilities.ts",
+      "src/browser/profiles-service.test.ts",
+      "src/browser/profiles-service.ts",
+      "src/browser/pw-session.ts",
+      "src/browser/resolved-config-refresh.ts",
+      "src/browser/routes/agent.shared.ts",
+      "src/browser/routes/agent.snapshot.plan.test.ts",
+      "src/browser/routes/agent.snapshot.plan.ts",
+      "src/browser/routes/agent.snapshot.test.ts",
+      "src/browser/routes/agent.snapshot.ts",
+      "src/browser/routes/basic.ts",
+      "src/browser/routes/tabs.ts",
+      "src/browser/runtime-lifecycle.ts",
+      "src/browser/server-context.availability.ts",
+      "src/browser/server-context.hot-reload-profiles.test.ts",
+      "src/browser/server-context.reset.ts",
+      "src/browser/server-context.selection.ts",
+      "src/browser/server-context.tab-ops.ts",
+      "src/browser/server-context.ts",
+      "src/browser/server-context.types.ts",
+      "src/browser/server.post-tabs-open-profile-unknown-returns-404.test.ts",
+      "src/browser/server.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "4ff4ed7ec97450b502ca3f456e3af8c7c19eff43",
+    "message": "fix(config): refresh runtime snapshot from disk after write. Fixes #37175 (#37313)",
+    "pr": "#37175",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CRITICAL-BUG",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/cli/daemon-cli/lifecycle.test.ts",
+      "src/config/config.ts",
+      "src/config/io.runtime-snapshot-write.test.ts",
+      "src/config/io.ts",
+      "src/secrets/runtime.test.ts",
+      "src/secrets/runtime.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "362248e55908296da1521ad3c4572fb4803d465b",
+    "message": "refactor: harden browser relay CDP flows",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "assets/chrome-extension/background-utils.js",
+      "assets/chrome-extension/background.js",
+      "src/agents/tools/browser-tool.actions.ts",
+      "src/agents/tools/browser-tool.test.ts",
+      "src/agents/tools/browser-tool.ts",
+      "src/browser/chrome-extension-background-utils.test.ts",
+      "src/browser/client.test.ts",
+      "src/browser/client.ts",
+      "src/browser/pw-session.get-page-for-targetid.extension-fallback.test.ts",
+      "src/browser/pw-session.page-cdp.test.ts",
+      "src/browser/pw-session.page-cdp.ts",
+      "src/browser/pw-session.ts",
+      "src/browser/pw-tools-core.snapshot.ts",
+      "src/browser/pw-tools-core.state.ts",
+      "src/browser/server-lifecycle.test.ts",
+      "src/browser/server-lifecycle.ts",
+      "src/node-host/invoke-browser.test.ts",
+      "src/node-host/invoke-browser.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "d47aa6bae89870ad7267f5ebc94ebf977443a0a0",
+    "message": "docs(changelog): remove rebase marker",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CHORE",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "661af2acd3948d4a0e39c65bc9a8115bb8ecf01e",
+    "message": "fix(agents): bootstrap runtime plugins before context-engine resolution",
+    "pr": "",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CRITICAL-BUG",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/agents/pi-embedded-runner/compact.hooks.test.ts",
+      "src/agents/pi-embedded-runner/compact.ts",
+      "src/agents/pi-embedded-runner/run.ts",
+      "src/agents/pi-embedded-runner/usage-reporting.test.ts",
+      "src/agents/runtime-plugins.ts",
+      "src/agents/subagent-registry.context-engine.test.ts",
+      "src/agents/subagent-registry.ts",
+      "src/agents/subagent-registry.types.ts",
+      "src/agents/subagent-spawn.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "936ac22ec222be0f60de22fc63884caa7fb6698d",
+    "message": "refactor: share channel config adapter base",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "extensions/discord/src/channel.ts",
+      "extensions/googlechat/src/channel.ts",
+      "extensions/slack/src/channel.ts",
+      "extensions/telegram/src/channel.ts",
+      "src/plugin-sdk/channel-config-helpers.ts",
+      "src/plugin-sdk/index.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "bf601db3fc5f6c0de404164689bf9d9e732d2e2b",
+    "message": "test: dedupe brave llm-context rejection cases",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P4",
+    "category": "TEST-ONLY",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/tools/web-tools.enabled-defaults.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "5845b5bfbac7db46e30df291fec5b830f0b036fb",
+    "message": "refactor: share multi-account config schema fragments",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "extensions/bluebubbles/src/config-schema.ts",
+      "extensions/zalo/src/config-schema.ts",
+      "extensions/zalouser/src/config-schema.ts",
+      "src/channels/plugins/config-schema.ts",
+      "src/plugin-sdk/index.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "52a253f18c93bdad81a892db2508e965b8afd8cc",
+    "message": "refactor: reuse broadcast route key construction",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/web/auto-reply/monitor/broadcast.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "3f2f007c9af16da6027915d0b1872821ea8119bc",
+    "message": "refactor: extract gateway port diagnostics helper",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/cli/daemon-cli/restart-health.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "32a6eae576e5e535a0db88d1c71ed7e277d8c5d1",
+    "message": "refactor: share gateway argv parsing",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/cli/daemon-cli/lifecycle.ts",
+      "src/infra/gateway-lock.ts",
+      "src/infra/gateway-process-argv.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "8d7778d1d6c56c85311d5d8de5a2658a181e0083",
+    "message": "refactor: dedupe plugin runtime stores",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "HIGH",
+    "files": [
+      "extensions/bluebubbles/src/runtime.ts",
+      "extensions/discord/src/runtime.ts",
+      "extensions/feishu/src/runtime.ts",
+      "extensions/googlechat/src/runtime.ts",
+      "extensions/imessage/src/runtime.ts",
+      "extensions/irc/src/runtime.ts",
+      "extensions/line/src/runtime.ts",
+      "extensions/matrix/src/runtime.ts",
+      "extensions/mattermost/src/runtime.ts",
+      "extensions/msteams/src/runtime.ts",
+      "extensions/nextcloud-talk/src/runtime.ts",
+      "extensions/nostr/src/runtime.ts",
+      "extensions/signal/src/runtime.ts",
+      "extensions/slack/src/runtime.ts",
+      "extensions/synology-chat/src/runtime.ts",
+      "extensions/telegram/src/runtime.ts",
+      "extensions/tlon/src/runtime.ts",
+      "extensions/twitch/src/runtime.ts",
+      "extensions/whatsapp/src/runtime.ts",
+      "extensions/zalo/src/runtime.ts",
+      "extensions/zalouser/src/runtime.ts",
+      "src/plugin-sdk/index.ts",
+      "src/plugin-sdk/runtime-store.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "3e70109cb218cf79a5f77bb17da0959d41ebdead",
+    "message": "docs: add refactor cluster backlog",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/refactor/cluster.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "024857050a7f6f6ecd4aebb804bbf92bf63c6da7",
+    "message": "fix: normalize openai-codex gpt-5.4 transport overrides",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/agents/pi-embedded-runner/model.test.ts",
+      "src/agents/pi-embedded-runner/model.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "3da8882a02489ec49cc920b9f6fc1f832d93188a",
+    "message": "test(models): refresh list assertions after main sync",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P4",
+    "category": "TEST-ONLY",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/commands/models.list.e2e.test.ts",
+      "src/commands/models/list.list-command.forward-compat.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "b2b99f0325fcef9afe52cc10bb01aae3b9350c5d",
+    "message": "fix(models): keep --all aligned with synthetic catalog rows",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/commands/models/list.list-command.forward-compat.test.ts",
+      "src/commands/models/list.list-command.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "a3dc4b5a577599eddb636cd307baf32bb43146fc",
+    "message": "fix(tui): improve color contrast for light-background terminals (#40345)",
+    "pr": "#40345",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CHANNEL-FIX",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "docs/help/environment.md",
+      "docs/web/tui.md",
+      "src/tui/theme/syntax-theme.ts",
+      "src/tui/theme/theme.test.ts",
+      "src/tui/theme/theme.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "211f68f8ad1b3ca25a8dbbf391d2a6ede3be8d17",
+    "message": "docs(changelog): move post-2026.3.8 entries to unreleased (#40342)",
+    "pr": "#40342",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CHORE",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "3f3f66a5f75bffa86b3ff0c42ebf914f4a089dd6",
+    "message": "Docker: trim runtime image payload (#40307)",
+    "pr": "#40307",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "MEDIUM",
+    "files": [
+      "CHANGELOG.md",
+      "Dockerfile",
+      "Dockerfile.sandbox-browser",
+      "package.json",
+      "scripts/docker/cleanup-smoke/Dockerfile",
+      "scripts/docker/install-sh-e2e/Dockerfile",
+      "scripts/docker/install-sh-nonroot/Dockerfile",
+      "scripts/docker/install-sh-smoke/Dockerfile",
+      "src/docker-setup.e2e.test.ts",
+      "src/dockerfile.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "bd1fe4d8b4a0d139be051cc1132a4d0ed5cf4796",
+    "message": "fix(run-openclaw-podman): add SELinux :Z mount option on enforcing/permissive hosts (#39449)",
+    "pr": "#39449",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "scripts/podman/openclaw.container.in",
+      "scripts/run-openclaw-podman.sh"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "3ea3a1c0ca09708dbe1328ae0ee9c62b32df4db0",
+    "message": "Update CHANGELOG.md",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "da6592b6815e50f6080525005a8c8222ea54e5cc",
+    "message": "Update CHANGELOG.md",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "abb8f63107c1094f0a96494a7ecbbdaed40be6f9",
+    "message": "iOS: auto-load the scoped gateway canvas with safe fallback (#40282)",
+    "pr": "#40282",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/ios/Sources/Model/NodeAppModel+Canvas.swift",
+      "apps/ios/Sources/Model/NodeAppModel.swift",
+      "apps/shared/OpenClawKit/Sources/OpenClawKit/GatewayNodeSession.swift",
+      "apps/shared/OpenClawKit/Tests/OpenClawKitTests/GatewayNodeSessionTests.swift"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "e806c479f538f167d1bfbb23327645eb19c095ca",
+    "message": "Gateway/iOS: replay queued foreground actions safely after resume (#40281)",
+    "pr": "#40281",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/ios/Sources/Model/NodeAppModel.swift",
+      "apps/ios/Tests/NodeAppModelInvokeTests.swift",
+      "apps/macos/Sources/OpenClawProtocol/GatewayModels.swift",
+      "apps/shared/OpenClawKit/Sources/OpenClawProtocol/GatewayModels.swift",
+      "src/gateway/method-scopes.ts",
+      "src/gateway/protocol/index.ts",
+      "src/gateway/protocol/schema/nodes.ts",
+      "src/gateway/protocol/schema/protocol-schemas.ts",
+      "src/gateway/protocol/schema/types.ts",
+      "src/gateway/server-methods-list.ts",
+      "src/gateway/server-methods/nodes.invoke-wake.test.ts",
+      "src/gateway/server-methods/nodes.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "38543d819690155b350fa358cf68b98d11a0fe6d",
+    "message": "fix(cron): consolidate announce delivery, fire-and-forget trigger, and minimal prompt mode (#40204)",
+    "pr": "#40204",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CRITICAL-BUG",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "docs/automation/cron-jobs.md",
+      "docs/cli/cron.md",
+      "src/agents/pi-embedded-runner/run/attempt.test.ts",
+      "src/agents/pi-embedded-runner/run/attempt.ts",
+      "src/agents/subagent-announce.timeout.test.ts",
+      "src/agents/subagent-announce.ts",
+      "src/cli/cron-cli.test.ts",
+      "src/cli/cron-cli/register.cron-simple.ts",
+      "src/cron/isolated-agent/delivery-dispatch.double-announce.test.ts",
+      "src/cron/service.issue-regressions.test.ts",
+      "src/cron/service.ts",
+      "src/cron/service/ops.ts",
+      "src/cron/service/state.ts",
+      "src/gateway/server-methods/cron.ts",
+      "src/gateway/server.cron.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "7dfd77abebeb2dd04e3367fe334d4d860ac82e09",
+    "message": "fix(setup-podman): cd to TMPDIR before podman load to avoid cwd permission error (#39435)",
+    "pr": "#39435",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "setup-podman.sh"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "5889a2e98e081987b894e5849a73ca3d324f62f1",
+    "message": "fix(plugin-sdk): lazily load legacy root alias",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/plugin-sdk/root-alias.cjs",
+      "src/plugin-sdk/root-alias.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "09acbe65289d9f1b6ba54bfcebcb3b9987de0fb5",
+    "message": "fix: harden backup verify path validation",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/commands/backup-verify.test.ts",
+      "src/commands/backup-verify.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "64dd23eadeb0a78d86dcb9b935f5abed2794800d",
+    "message": "fix(ci): refresh detect-secrets baseline",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "UNUSED-CHANNEL",
+    "conflict_risk": "LOW",
+    "files": [
+      ".secrets.baseline"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "dadd7f99cd3b277eba150bd0a7240b3f1be69d7c",
+    "message": "fix(ci): scope secrets scan to branch changes",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CI-CD",
+    "conflict_risk": "LOW",
+    "files": [
+      ".github/workflows/ci.yml",
+      ".pre-commit-config.yaml",
+      ".secrets.baseline",
+      "apps/macos/Tests/OpenClawIPCTests/AppStateRemoteConfigTests.swift",
+      "src/agents/models-config.applies-config-env-vars.test.ts",
+      "src/agents/models-config.providers.matrix.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "0ecfd37b44656f3b1ef08268e3b5c6d975107a26",
+    "message": "feat: add local backup CLI (#40163)",
+    "pr": "#40163",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "NICE-TO-HAVE",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "docs/cli/backup.md",
+      "docs/cli/index.md",
+      "docs/cli/reset.md",
+      "docs/cli/uninstall.md",
+      "src/cli/command-secret-gateway.test.ts",
+      "src/cli/program/command-registry.test.ts",
+      "src/cli/program/command-registry.ts",
+      "src/cli/program/preaction.test.ts",
+      "src/cli/program/preaction.ts",
+      "src/cli/program/register.backup.test.ts",
+      "src/cli/program/register.backup.ts",
+      "src/commands/backup-shared.ts",
+      "src/commands/backup-verify.test.ts",
+      "src/commands/backup-verify.ts",
+      "src/commands/backup.atomic.test.ts",
+      "src/commands/backup.test.ts",
+      "src/commands/backup.ts",
+      "src/commands/reset.test.ts",
+      "src/commands/reset.ts",
+      "src/commands/uninstall.test.ts",
+      "src/commands/uninstall.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "a075baba849e57789ca3984511f2cf685525a9b8",
+    "message": "refactor(browser): scope CDP sessions and harden stale target recovery",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/tools/browser-tool.actions.ts",
+      "src/agents/tools/browser-tool.test.ts",
+      "src/browser/browser-utils.test.ts",
+      "src/browser/cdp.test.ts",
+      "src/browser/config.test.ts",
+      "src/browser/extension-relay.bind-host.test.ts",
+      "src/browser/pw-session.connections.test.ts",
+      "src/browser/pw-session.get-page-for-targetid.extension-fallback.test.ts",
+      "src/browser/pw-session.ts",
+      "src/browser/server-context.ensure-tab-available.prefers-last-target.test.ts",
+      "src/browser/server-context.loopback-direct-ws.test.ts",
+      "src/browser/server-context.remote-profile-tab-ops.suite.ts",
+      "src/browser/server-context.reset.test.ts",
+      "src/browser/server-context.reset.ts",
+      "src/browser/server-context.selection.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "a6131438eaa003e069f7f54c9bfc7b174a53f402",
+    "message": "fix(macos): improve tailscale gateway discovery (#40167)",
+    "pr": "#40167",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "apps/macos/Sources/OpenClaw/GatewayDiscoverySelectionSupport.swift",
+      "apps/macos/Sources/OpenClawDiscovery/GatewayDiscoveryModel.swift",
+      "apps/macos/Sources/OpenClawDiscovery/TailscaleServeGatewayDiscovery.swift",
+      "apps/macos/Tests/OpenClawIPCTests/GatewayDiscoveryModelTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/GatewayDiscoverySelectionSupportTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/TailscaleServeGatewayDiscoveryTests.swift"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "92726d9863b9ddb729ce8861d628cce6f371b595",
+    "message": "docs(changelog): credit macos remote token author",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CHORE",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "3d3e8fe78c911ae1edd6b30717449ab41ef26f62",
+    "message": "fix(macos): preserve unsupported remote gateway tokens",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "apps/macos/Sources/OpenClaw/AppState.swift",
+      "apps/macos/Sources/OpenClaw/GatewayEndpointStore.swift",
+      "apps/macos/Sources/OpenClaw/GatewayRemoteConfig.swift",
+      "apps/macos/Sources/OpenClaw/GeneralSettings.swift",
+      "apps/macos/Sources/OpenClaw/OnboardingView+Pages.swift",
+      "apps/macos/Tests/OpenClawIPCTests/AppStateRemoteConfigTests.swift"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "3b7a72bffb8ea9e2f9ed80ca42540b20597ccf24",
+    "message": "tests: document remote token persistence across mode toggle",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/macos/Tests/OpenClawIPCTests/AppStateRemoteConfigTests.swift"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "37e0b016842ef9e2bc02bf1667343c4b14d0c621",
+    "message": "macos: add mode-toggle remote token sync coverage",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/macos/Sources/OpenClaw/AppState.swift",
+      "apps/macos/Tests/OpenClawIPCTests/AppStateRemoteConfigTests.swift"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "bd0e6a6efdb6bb6d7cbfc76f3c0b619a381e9eb8",
+    "message": "macos: clarify remote token placeholder text",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/macos/Sources/OpenClaw/GeneralSettings.swift",
+      "apps/macos/Sources/OpenClaw/OnboardingView+Pages.swift"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "6b338dd28342b0f07ee068a3356f39cef248170d",
+    "message": "macos: add remote gateway token field for remote mode",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/macos/Sources/OpenClaw/AppState.swift",
+      "apps/macos/Sources/OpenClaw/GatewayRemoteConfig.swift",
+      "apps/macos/Sources/OpenClaw/GeneralSettings.swift",
+      "apps/macos/Sources/OpenClaw/OnboardingView+Pages.swift",
+      "apps/macos/Tests/OpenClawIPCTests/AppStateRemoteConfigTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/GatewayEndpointStoreTests.swift"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "9d467d1620d2e89a3a50bb17e071aa9eecc1e559",
+    "message": "docs: add WSL2 + Windows remote Chrome CDP troubleshooting (#39407) (thanks @Owlock)",
+    "pr": "#39407",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CHORE",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "docs/docs.json",
+      "docs/help/troubleshooting.md",
+      "docs/tools/browser-wsl2-windows-remote-cdp-troubleshooting.md",
+      "docs/tools/browser.md",
+      "docs/tools/index.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "d3111fbbcbc4b985b6b3a931a12124798c813602",
+    "message": "fix: make browser relay bind address configurable (#39364) (thanks @mvanhorn)",
+    "pr": "#39364",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "docs/gateway/configuration-reference.md",
+      "docs/tools/browser.md",
+      "docs/tools/chrome-extension.md",
+      "src/browser/extension-relay.test.ts",
+      "src/browser/extension-relay.ts",
+      "src/config/schema.help.ts",
+      "src/config/schema.labels.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "e883d0b556b069d216e76fedbb17d4b59babd35d",
+    "message": "fix(browser): add IP validation, fix upgrade handler for non-loopback bind",
+    "pr": "",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CRITICAL-BUG",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/browser/extension-relay.test.ts",
+      "src/browser/extension-relay.ts",
+      "src/config/zod-schema.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "436ae8a07c8b8c49ddb215bcdc34aa4cb9632a25",
+    "message": "fix(infra): make browser relay bind address configurable",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/browser/config.ts",
+      "src/browser/extension-relay.test.ts",
+      "src/browser/extension-relay.ts",
+      "src/browser/server-context.availability.ts",
+      "src/browser/server-lifecycle.ts",
+      "src/config/types.browser.ts",
+      "src/config/zod-schema.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "0692f71c6f97dfba884c63ca27c46f0cba9b6d68",
+    "message": "fix: wait for extension relay tab reconnects (#32461) (thanks @AaronWander)",
+    "pr": "#32461",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/browser/server-context.ensure-tab-available.prefers-last-target.test.ts",
+      "src/infra/git-commit.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "bcb0d1b8b4ff7ad78911c1d72e504c2fd6ccc02c",
+    "message": "fix(browser): wait for extension tabs after relay drop (#32331)",
+    "pr": "#32331",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CRITICAL-BUG",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/browser/server-context.ensure-tab-available.prefers-last-target.test.ts",
+      "src/browser/server-context.selection.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "dcdce83da75d7ee891f4b11c2c977a2960c28cb4",
+    "message": "fix: normalize wildcard remote CDP websocket URLs (#17760) (thanks @joeharouni)",
+    "pr": "#17760",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "dfa3605bee235dcafbe4aeb67c1d07b945231a66",
+    "message": "fix(browser): rewrite 0.0.0.0 and [::] wildcard addresses in CDP WebSocket URLs",
+    "pr": "",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CRITICAL-BUG",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/browser/cdp.test.ts",
+      "src/browser/cdp.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "4bfa800cc7c2ab510f5df23dcb84c384bf5539a8",
+    "message": "fix: share context engine registry across bundled chunks (#40115)",
+    "pr": "#40115",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/context-engine/context-engine.test.ts",
+      "src/context-engine/registry.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "9914b48c578262ded2b2318493fd7e2fc46dd8ed",
+    "message": "fix: preserve loopback ws cdp tab ops (#31085) (thanks @shrey150)",
+    "pr": "#31085",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/browser/browser-utils.test.ts",
+      "src/browser/cdp.helpers.ts",
+      "src/browser/pw-session.ts",
+      "src/browser/server-context.loopback-direct-ws.test.ts",
+      "src/browser/server-context.selection.ts",
+      "src/browser/server-context.tab-ops.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "4d904e7b7d6a1847f91f5688522786e9f9ec1870",
+    "message": "style(browser): fix oxfmt formatting in config.ts",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CHORE",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/browser/config.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "7b58507224579a1a6cff878d747068c25fcfa200",
+    "message": "chore: remove vendor-specific references from code comments",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CHORE",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/browser/cdp.helpers.ts",
+      "src/browser/cdp.ts",
+      "src/browser/chrome.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "c1f6edf48b23319ee0052f34602d5b0028afe312",
+    "message": "fix(browser): preserve wss:// cdpUrl in legacy default profile resolution",
+    "pr": "",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CRITICAL-BUG",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/browser/config.test.ts",
+      "src/browser/config.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "8b2f40f5f643be315ae78d95a520db09af08401a",
+    "message": "fix(browser): update existing tests for ws/wss protocol support",
+    "pr": "",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CRITICAL-BUG",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/browser/config.test.ts",
+      "src/browser/server.post-tabs-open-profile-unknown-returns-404.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "f9c220e2613134c3fad6907dc11746cc6a791ef6",
+    "message": "test+docs: comprehensive coverage and generic framing",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/tools/browser.md",
+      "src/browser/cdp.test.ts",
+      "src/browser/chrome.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "75602014dbc5088b80e9b236146dfe5fdcc59e20",
+    "message": "feat(browser): support direct WebSocket CDP URLs for Browserbase",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/tools/browser.md",
+      "src/browser/cdp.helpers.ts",
+      "src/browser/cdp.test.ts",
+      "src/browser/cdp.ts",
+      "src/browser/chrome.ts",
+      "src/browser/config.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "3cf75f760c0f89adbad9415b3d5fdb5b83f2dd82",
+    "message": "docs: simplify Browserbase section, drop pricing details",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/tools/browser.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "ae39a152d8563540cc0f690aa873cc1085174941",
+    "message": "docs: fact-check Browserbase section against official docs",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/tools/browser.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "efa1204183bf48fdfe8dfaedb5f93d072b6a38d8",
+    "message": "docs: restore direct wss://connect.browserbase.com URL",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/tools/browser.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "9a4610c6411bbebd9593c1747c67be0286469b32",
+    "message": "docs: fix Browserbase section to match official docs",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/tools/browser.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "c0a988f692049623eb6cd4c698e08dce490ee586",
+    "message": "docs: fix duplicate heading lint error",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/tools/browser.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "641e1bacb43f6eb74ede1f2999671ac21180e3ff",
+    "message": "docs: add Browserbase as hosted remote CDP option",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/tools/browser.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "0252bdc837f0706e185cf50cadf84fccc20be5b7",
+    "message": "Revert \"docs: add Browserbase as hosted remote CDP option\"",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/tools/browser.md",
+      "docs/zh-CN/tools/browser.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "885199dcaa683834cd929f8c033deb7076c415fb",
+    "message": "docs: add Browserbase as hosted remote CDP option",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/tools/browser.md",
+      "docs/zh-CN/tools/browser.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "3ada30e6707e117ceb394a934e2d8be424a0ea59",
+    "message": "fix: restore gate after rebase",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "scripts/test-parallel.mjs",
+      "src/agents/pi-embedded-runner-extraparams.test.ts",
+      "src/agents/provider-capabilities.ts",
+      "src/infra/git-commit.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "c5095153b0b7e72b5a792d476e3f5a6b7d4094a8",
+    "message": "refactor: extract qmd process runner",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/memory/qmd-manager.ts",
+      "src/memory/qmd-process.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "68775745d239c25c5860a27b5c483c052c9d6781",
+    "message": "fix: restore acp session meta narrowing",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/acp/control-plane/manager.core.ts",
+      "src/acp/control-plane/manager.utils.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "f399a818ef6882ab57b7d926f4cacba6a8cb3cb1",
+    "message": "refactor: extract ios watch reply coordinator",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/ios/Sources/Model/NodeAppModel.swift",
+      "apps/ios/Sources/Model/WatchReplyCoordinator.swift",
+      "apps/ios/SwiftSources.input.xcfilelist"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "6bd5735519b435d9efc6278c97ef51b718207b1f",
+    "message": "refactor: split doctor config analysis helpers",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/commands/doctor-config-analysis.test.ts",
+      "src/commands/doctor-config-analysis.ts",
+      "src/commands/doctor-config-flow.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "11be305609450ec8700f67375eae00252be8b916",
+    "message": "refactor: neutralize context engine runtime bridge",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/pi-embedded-runner/compact.ts",
+      "src/agents/pi-embedded-runner/run.ts",
+      "src/agents/pi-embedded-runner/run/attempt.test.ts",
+      "src/agents/pi-embedded-runner/run/attempt.ts",
+      "src/context-engine/context-engine.test.ts",
+      "src/context-engine/legacy.ts",
+      "src/context-engine/types.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "f6cb77134c1444a3a10b1329c1e43de40ec84f00",
+    "message": "refactor: centralize acp session resolution guards",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/acp/control-plane/manager.core.ts",
+      "src/acp/control-plane/manager.utils.ts",
+      "src/auto-reply/reply/commands-acp/lifecycle.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "25d0aa7296031f7f60d3024fec0bc6b725a3330c",
+    "message": "refactor: simplify plugin sdk compatibility aliases",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/plugin-sdk/root-alias.cjs",
+      "src/plugin-sdk/root-alias.test.ts",
+      "src/plugins/loader.test.ts",
+      "src/plugins/loader.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "dd7470730d211c9daaaa043edeeea5c7a5ea7079",
+    "message": "test: isolate git commit resolution fallbacks",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P4",
+    "category": "TEST-ONLY",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/infra/git-commit.test.ts",
+      "src/infra/git-commit.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "c70151e873aaa4b6549968b80e092bd1872be0af",
+    "message": "test: isolate legacy plugin-sdk root import check",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P4",
+    "category": "TEST-ONLY",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/plugins/loader.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "a007bed37551cf2b6f4cef08ad238c08ade7d9fe",
+    "message": "test: isolate plugin loader from mocked module cache",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P4",
+    "category": "TEST-ONLY",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/plugins/loader.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "fa580e33c12f9786c9bbd2ff1bafe5b964616596",
+    "message": "refactor: split android talk voice resolution",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/android/app/src/main/java/ai/openclaw/app/voice/TalkModeManager.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/voice/TalkModeVoiceResolver.kt",
+      "apps/android/app/src/test/java/ai/openclaw/app/voice/TalkModeVoiceResolverTest.kt"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "371c53b282727c38446fe6e9499f8964130362de",
+    "message": "test: expand talk config contract fixtures",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/android/app/src/test/java/ai/openclaw/app/voice/TalkModeConfigContractTest.kt",
+      "apps/shared/OpenClawKit/Tests/OpenClawKitTests/TalkConfigContractTests.swift",
+      "src/gateway/protocol/talk-config.contract.test.ts",
+      "test-fixtures/talk-config-contract.json"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "cee2f3e8b4c0e7d4eb69f554fa51ea635ed9c49f",
+    "message": "refactor: dedupe android talk config parsing",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/android/app/src/main/java/ai/openclaw/app/voice/TalkModeGatewayConfig.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/voice/TalkModeManager.kt",
+      "apps/android/app/src/test/java/ai/openclaw/app/voice/TalkModeConfigContractTest.kt",
+      "apps/android/app/src/test/java/ai/openclaw/app/voice/TalkModeConfigParsingTest.kt"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "2ed644f5d35f4b8b1a67f7765233fddf20f72ae6",
+    "message": "fix: require talk resolved payload",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/gateway/protocol/index.test.ts",
+      "src/gateway/protocol/schema/channels.ts",
+      "src/gateway/protocol/talk-config.contract.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "404b1527e6bdf84a2b976f80111e5e5334c10e7c",
+    "message": "fix(acp): persist spawned child session history (#40137)",
+    "pr": "#40137",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      ".secrets.baseline",
+      "CHANGELOG.md",
+      "src/agents/acp-spawn.test.ts",
+      "src/agents/acp-spawn.ts",
+      "src/commands/agent.acp.test.ts",
+      "src/commands/agent.ts",
+      "src/config/sessions/transcript.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "72ebaf97c309d25ff6102ba900ad3992d8b04737",
+    "message": "test: add implicit provider matrix coverage",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P4",
+    "category": "TEST-ONLY",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/models-config.providers.matrix.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "8ab762c005f11f05fa51dcc7dfeab2e43cb4fbd4",
+    "message": "test: standardize hermetic provider env snapshots",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P4",
+    "category": "TEST-ONLY",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/models-config.e2e-harness.ts",
+      "src/agents/models-config.providers.auth-provenance.test.ts",
+      "src/agents/models-config.providers.cloudflare-ai-gateway.test.ts",
+      "src/agents/models-config.providers.discovery-auth.test.ts",
+      "src/agents/models-config.providers.kilocode.test.ts",
+      "src/agents/models-config.providers.kimi-coding.test.ts",
+      "src/agents/models-config.providers.minimax.test.ts",
+      "src/agents/models-config.providers.nvidia.test.ts",
+      "src/agents/models-config.providers.ollama-autodiscovery.test.ts",
+      "src/agents/models-config.providers.ollama.test.ts",
+      "src/agents/models-config.providers.openai-codex.test.ts",
+      "src/agents/models-config.providers.qianfan.test.ts",
+      "src/agents/models-config.providers.vercel-ai-gateway.test.ts",
+      "src/agents/models-config.providers.volcengine-byteplus.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "d307a7ca1a21b5650f74efa732368663c733a33d",
+    "message": "refactor: extract bundled extension manifest parser",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "scripts/lib/bundled-extension-manifest.ts",
+      "scripts/release-check.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "52bc809143c641bdb7f2a66b2d321a9c640bd140",
+    "message": "refactor: extract provider stream wrappers",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/pi-embedded-runner/anthropic-stream-wrappers.ts",
+      "src/agents/pi-embedded-runner/extra-params.ts",
+      "src/agents/pi-embedded-runner/moonshot-stream-wrappers.ts",
+      "src/agents/pi-embedded-runner/proxy-stream-wrappers.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "6094035054bebbc42ce4c92ef221aac742c55a63",
+    "message": "refactor: extract static provider builders",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/models-config.providers.static.ts",
+      "src/agents/models-config.providers.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "f493b03202114696cdc82b2122ffe06c3c70968b",
+    "message": "refactor: validate bundled extension release metadata",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "scripts/release-check.ts",
+      "test/release-check.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "e53d840fed7a2f6a1cf4732ad68c318f09d9ceea",
+    "message": "refactor: extract openai stream wrappers",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/pi-embedded-runner/extra-params.ts",
+      "src/agents/pi-embedded-runner/openai-stream-wrappers.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "f66bd105a4731cb79ad5b03765c76d90ddbd52f4",
+    "message": "refactor: decompose implicit provider resolution",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/models-config.providers.auth-provenance.test.ts",
+      "src/agents/models-config.providers.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "ef2541ceb335b1ff69b43137b54683d7ccd4fe7f",
+    "message": "refactor: centralize transcript provider quirks",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/provider-capabilities.test.ts",
+      "src/agents/provider-capabilities.ts",
+      "src/agents/transcript-policy.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "8a18e2598feeb0b302dcffe400595587daec3c2f",
+    "message": "refactor: split models registry loading from persistence",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/commands/models.list.e2e.test.ts",
+      "src/commands/models/list.list-command.ts",
+      "src/commands/models/list.registry.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "749eb4efeadc9cb381dcfe99c54c47c39a709422",
+    "message": "refactor: thread config runtime env through models config",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/models-config.applies-config-env-vars.test.ts",
+      "src/agents/models-config.providers.ts",
+      "src/agents/models-config.ts",
+      "src/config/config.env-vars.test.ts",
+      "src/config/env-vars.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "64d4d9aabb61984c4384c2dfe93a3a74a9180411",
+    "message": "refactor: move bundled extension gap allowlists into manifests",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "MEDIUM",
+    "files": [
+      "extensions/googlechat/package.json",
+      "extensions/matrix/package.json",
+      "extensions/msteams/package.json",
+      "extensions/nostr/package.json",
+      "extensions/tlon/package.json",
+      "extensions/zalouser/package.json",
+      "scripts/release-check.ts",
+      "test/release-check.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "e5c06dd64a167b5e6135ea7356427332ac17e596",
+    "message": "refactor: use model compat for anthropic tool payload normalization",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/models-config.providers.ts",
+      "src/agents/pi-embedded-runner-extraparams.test.ts",
+      "src/agents/pi-embedded-runner/extra-params.ts",
+      "src/config/types.models.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "efcca3d2ea53b19ce7a5ec0b02c8aa1556b39235",
+    "message": "Tests: format daemon lifecycle CLI coverage",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/cli/daemon-cli/lifecycle.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "0b452a5665f4353ee00a98c7475026c35b6a80ba",
+    "message": "CLI: set local gateway mode in setup",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/commands/setup.test.ts",
+      "src/commands/setup.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "4c71176c9f32c24d8fd2b8cdfd931c3c6a0e38dc",
+    "message": "Chore: refresh detect-secrets baseline for Feishu docs",
+    "pr": "",
+    "action": "REVIEW",
+    "priority": "P2",
+    "category": "CHANNEL-FIX",
+    "conflict_risk": "LOW",
+    "files": [
+      ".secrets.baseline"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "c5bba6628e51a6a35bbd10378a5dc92e0a437403",
+    "message": "Chore: refresh detect-secrets baseline after final scan",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "UNUSED-CHANNEL",
+    "conflict_risk": "LOW",
+    "files": [
+      ".secrets.baseline"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "3b68d3fded191fdab708863f3e42a35821a9baf1",
+    "message": "Chore: refresh detect-secrets baseline after docs line changes",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "UNUSED-CHANNEL",
+    "conflict_risk": "LOW",
+    "files": [
+      ".secrets.baseline"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "7856f5730c28a60413a926c116a0abaa01d01182",
+    "message": "Web search: allowlist Perplexity auth source type name",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/tools/web-search.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "aebfce7a362d8e737612e5363854fbed9f887540",
+    "message": "Chore: refresh detect-secrets baseline",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "UNUSED-CHANNEL",
+    "conflict_risk": "LOW",
+    "files": [
+      ".secrets.baseline"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "e19b3679d152f43e7e6e17289f42685ec2ecd858",
+    "message": "Chore: widen xxxxx detect-secrets allowlist",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      ".pre-commit-config.yaml"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "d23d36a2f9c2ca25ec60151807514ef31b11af9b",
+    "message": "Tests: lower entropy git commit fixtures",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/infra/git-commit.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "2ae58542a02d6cbf623815645fe15fc34fe31f50",
+    "message": "Fixtures: normalize talk config API key placeholder",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "test-fixtures/talk-config-contract.json"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "55465d86d93d4026b74f6dd3621618be45124988",
+    "message": "Docs: use placeholder OpenRouter key in web tool docs",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/tools/web.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "615466bdf42cbe842c27c854f59cf89c77303e6f",
+    "message": "Docs: use placeholder OpenRouter key in Perplexity guide",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/perplexity.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "6f4de3cc23c29d1db3d8e65814f048ce07e81460",
+    "message": "Web search: rename Perplexity auth source helper",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/tools/web-search.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "f19761cefa129c93c2f92c2f6cc77179dda6c96b",
+    "message": "Tests: reduce web search secret-scan noise",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/tools/web-search.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "5387faa7181fb4458fc30f68955d4443339824c8",
+    "message": "CI: satisfy provider merge fixture typing",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/models-config.merge.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "bdf9739e592c539ce905405f2272d56b7d95bcd2",
+    "message": "Add too-many-prs override label handling",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CI-CD",
+    "conflict_risk": "LOW",
+    "files": [
+      ".github/workflows/auto-response.yml",
+      ".github/workflows/labeler.yml"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "2970d72554512b27b80d7dfbc82b40d034f81d9d",
+    "message": "docs: update Brave Search API docs for Feb 2026 plan restructuring (#40111)",
+    "pr": "#40111",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CHORE",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "docs/brave-search.md",
+      "docs/reference/api-usage-costs.md",
+      "docs/tools/web.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "74624e619d41be10b94d165f065693190935ff1d",
+    "message": "fix: prefer bundled channel plugins over npm duplicates (#40094)",
+    "pr": "#40094",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/cli/plugin-install-plan.test.ts",
+      "src/cli/plugin-install-plan.ts",
+      "src/commands/onboarding/plugin-install.test.ts",
+      "src/commands/onboarding/plugin-install.ts",
+      "src/plugins/bundled-sources.test.ts",
+      "src/plugins/bundled-sources.ts",
+      "src/plugins/update.test.ts",
+      "src/plugins/update.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "6c9b49a10b09fbde869fd175cb3ebce6deb3893d",
+    "message": "fix(sessions): clear stale contextTokens on model switch (#38044)",
+    "pr": "#38044",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CRITICAL-BUG",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "scripts/test-parallel.mjs",
+      "src/auto-reply/status.test.ts",
+      "src/cli/daemon-cli/lifecycle.test.ts",
+      "src/infra/git-commit.test.ts",
+      "src/process/supervisor/adapters/child.test.ts",
+      "src/sessions/model-overrides.test.ts",
+      "src/sessions/model-overrides.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "caf1b84822a01a4a008219ae415931e078a04ba4",
+    "message": "feat: allow compaction model override via config (#38753)",
+    "pr": "#38753",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "NICE-TO-HAVE",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "docs/concepts/compaction.md",
+      "docs/gateway/configuration-reference.md",
+      "scripts/test-parallel.mjs",
+      "src/agents/models-config.merge.test.ts",
+      "src/agents/pi-embedded-runner/compact.ts",
+      "src/agents/pi-embedded-runner/run/attempt.test.ts",
+      "src/config/schema.help.quality.test.ts",
+      "src/config/schema.help.ts",
+      "src/config/schema.labels.ts",
+      "src/config/types.agent-defaults.ts",
+      "src/config/zod-schema.agent-defaults.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "b6520d71726869fcd3a5fba82f8afce401195ec6",
+    "message": "CI: scope CodeQL JavaScript analysis",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      ".github/codeql/codeql-javascript-typescript.yml",
+      ".github/workflows/codeql.yml"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "d4ab731746a5078d0d525c8f6ab45b579ee713c8",
+    "message": "fix(telegram): use message previews in DMs",
+    "pr": "",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CHANNEL-FIX",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "docs/channels/telegram.md",
+      "docs/concepts/streaming.md",
+      "src/telegram/bot-message-dispatch.test.ts",
+      "src/telegram/bot-message-dispatch.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "95dff166cbbb18ae099723e48313545af06f2657",
+    "message": "refactor: fold implicit provider injection into resolver",
+    "pr": "",
+    "action": "MERGE",
+    "priority": "P0",
+    "category": "SECURITY",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/model-auth.ts",
+      "src/agents/models-config.providers.discovery-auth.test.ts",
+      "src/agents/models-config.providers.ts",
+      "src/agents/models-config.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "1ec1f0f1f2d1148e5fc56081f199529220d4c3f6",
+    "message": "refactor: scope prep push results to env artifacts",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "scripts/pr"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "bce9d93fb573028ce6f195ef05beac774885f057",
+    "message": "fix: publish models.json atomically",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/models-config.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "bec3c0b71d6c4885389d3ff038d9d508243c08f0",
+    "message": "refactor: reuse one models.json read per write",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/models-config.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "b41bcb08a283810e45b3f657992b64c6eec96a10",
+    "message": "refactor: expand provider capability registry",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/pi-embedded-runner/extra-params.ts",
+      "src/agents/provider-capabilities.test.ts",
+      "src/agents/provider-capabilities.ts",
+      "src/agents/transcript-policy.test.ts",
+      "src/agents/transcript-policy.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "75e15216600b4c03165c1ee71c2b4a97d8f22c07",
+    "message": "refactor: extract pure models config merge helpers",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/models-config.merge.test.ts",
+      "src/agents/models-config.merge.ts",
+      "src/agents/models-config.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "79c5c660bba89c3ab5fd2d8c5c25a2f86eb285c7",
+    "message": "fix: treat model api drift as baseUrl refresh",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/models-config.fills-missing-provider-apikey-from-env-var.test.ts",
+      "src/agents/models-config.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "fa00b1d0ca2650b4ec7a956728774ebc3a8f48ba",
+    "message": "refactor: dedupe prep branch push flow",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "scripts/pr"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "032778fb2e3a0292997c908d7c24a805ce4d6778",
+    "message": "refactor: avoid checkout during prep head verification",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "REFACTOR",
+    "conflict_risk": "LOW",
+    "files": [
+      "scripts/pr"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "16a5f0b006919f9b6150332474e8ceca08320513",
+    "message": "refactor: split talk gateway config loaders",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/android/app/src/main/java/ai/openclaw/app/voice/TalkModeGatewayConfig.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/voice/TalkModeManager.kt",
+      "apps/ios/Sources/Voice/TalkModeGatewayConfig.swift",
+      "apps/ios/Sources/Voice/TalkModeManager.swift",
+      "apps/macos/Sources/OpenClaw/TalkModeGatewayConfig.swift",
+      "apps/macos/Sources/OpenClaw/TalkModeRuntime.swift"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "dc5645d45997ad51e1cc69c60f365e7f9c5cedc3",
+    "message": "test: add talk config contract fixtures",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/android/app/src/test/java/ai/openclaw/app/voice/TalkModeConfigContractTest.kt",
+      "apps/shared/OpenClawKit/Tests/OpenClawKitTests/TalkConfigContractTests.swift",
+      "src/gateway/protocol/talk-config.contract.test.ts",
+      "test-fixtures/talk-config-contract.json"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "8d3d742c6a2f641c103c0c2b7705224b6e902802",
+    "message": "refactor: require canonical talk resolved payload",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/android/app/src/main/java/ai/openclaw/app/voice/TalkModeManager.kt",
+      "apps/android/app/src/test/java/ai/openclaw/app/voice/TalkModeConfigParsingTest.kt",
+      "apps/ios/Sources/Voice/TalkModeManager.swift",
+      "apps/ios/Tests/Logic/TalkConfigParsingTests.swift",
+      "apps/macos/Sources/OpenClaw/TalkModeRuntime.swift",
+      "apps/macos/Tests/OpenClawIPCTests/TalkModeConfigParsingTests.swift",
+      "apps/shared/OpenClawKit/Sources/OpenClawKit/TalkConfigParsing.swift",
+      "apps/shared/OpenClawKit/Tests/OpenClawKitTests/TalkConfigParsingTests.swift"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "87640f9a6100fe3282cdb4dbf8a1c4599d321b19",
+    "message": "fix: align talk config secret schemas",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/gateway/protocol/index.test.ts",
+      "src/gateway/protocol/index.ts",
+      "src/gateway/protocol/schema/channels.ts",
+      "src/gateway/protocol/schema/primitives.ts",
+      "src/gateway/server.talk-config.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "b7ad8fd6613d73d1a7df076dbe04ffa585aec929",
+    "message": "fix: fail closed talk provider selection",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/android/app/src/main/java/ai/openclaw/app/voice/TalkModeManager.kt",
+      "apps/android/app/src/test/java/ai/openclaw/app/voice/TalkModeConfigParsingTest.kt",
+      "apps/shared/OpenClawKit/Sources/OpenClawKit/TalkConfigParsing.swift",
+      "apps/shared/OpenClawKit/Tests/OpenClawKitTests/TalkConfigParsingTests.swift",
+      "src/config/config.talk-validation.test.ts",
+      "src/config/talk.ts",
+      "src/config/zod-schema.talk.test.ts",
+      "src/config/zod-schema.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "ca5e352c53e8794c05339ba6a0b0b8f5ba6bf629",
+    "message": "CLI: include commit hash in --version output (#39712)",
+    "pr": "#39712",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "scripts/docker/install-sh-common/cli-verify.sh",
+      "scripts/docker/install-sh-common/version-parse.sh",
+      "scripts/docker/install-sh-e2e/Dockerfile",
+      "scripts/docker/install-sh-e2e/run.sh",
+      "scripts/docker/install-sh-nonroot/Dockerfile",
+      "scripts/docker/install-sh-smoke/Dockerfile",
+      "scripts/install.sh",
+      "src/auto-reply/status.ts",
+      "src/cli/banner.ts",
+      "src/cli/program/help.test.ts",
+      "src/cli/program/help.ts",
+      "src/entry.ts",
+      "src/entry.version-fast-path.test.ts",
+      "src/infra/git-commit.test.ts",
+      "src/infra/git-commit.ts",
+      "src/infra/openclaw-root.test.ts",
+      "src/infra/openclaw-root.ts",
+      "src/install-sh-version.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "c94265545167b6d3ae18af7516cd6149b7b76c6e",
+    "message": "fix(hooks): use resolveAgentIdFromSessionKey in runBeforeReset  (#39875)",
+    "pr": "#39875",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/auto-reply/reply/commands-core.test.ts",
+      "src/auto-reply/reply/commands-core.ts",
+      "src/auto-reply/reply/commands.test.ts",
+      "src/hooks/bundled/session-memory/handler.test.ts",
+      "src/hooks/bundled/session-memory/handler.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "fa83010b17bb0cc52273b555040b731a29eede91",
+    "message": "fix(plugins): ship Feishu bundled runtime dependency (#39990)",
+    "pr": "#39990",
+    "action": "REVIEW",
+    "priority": "P2",
+    "category": "CHANNEL-FIX",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/channels/feishu.md",
+      "docs/zh-CN/channels/feishu.md",
+      "src/plugins/bundled-runtime-deps.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "67b2e81360c40862f82676660460182a24909556",
+    "message": "Zalo: fix provider lifecycle restarts (#39892)",
+    "pr": "#39892",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "extensions/zalo/src/api.test.ts",
+      "extensions/zalo/src/api.ts",
+      "extensions/zalo/src/channel.startup.test.ts",
+      "extensions/zalo/src/channel.ts",
+      "extensions/zalo/src/monitor.lifecycle.test.ts",
+      "extensions/zalo/src/monitor.ts",
+      "src/plugin-sdk/zalo.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "28e46d04e57ea49d5325502da1d87a56333bd0c3",
+    "message": "fix(web-search): restore OpenRouter compatibility for Perplexity (#39937) (#39937)",
+    "pr": "#39937",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CHANNEL-FIX",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "docs/perplexity.md",
+      "docs/tools/web.md",
+      "src/agents/tools/web-search.test.ts",
+      "src/agents/tools/web-search.ts",
+      "src/agents/tools/web-tools.enabled-defaults.test.ts",
+      "src/config/config.web-search-provider.test.ts",
+      "src/config/schema.help.ts",
+      "src/config/zod-schema.agent-runtime.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "d9e8e8ac159bdc5d049a210396e5317a31da7486",
+    "message": "fix: resolve live config paths in status and gateway metadata (#39952)",
+    "pr": "#39952",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/commands/models/list.status-command.ts",
+      "src/commands/models/list.status.test.ts",
+      "src/config/logging.test.ts",
+      "src/config/logging.ts",
+      "src/gateway/server-methods/config.ts",
+      "src/gateway/server.auth.default-token.suite.ts",
+      "src/gateway/server.config-patch.test.ts",
+      "src/gateway/server/health-state.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "da3cccb21233e2298cc693ef0071dd5a687345c0",
+    "message": "test: decouple ios talk parsing coverage",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/ios/Tests/Logic/TalkConfigParsingTests.swift",
+      "apps/ios/Tests/TalkModeConfigParsingTests.swift",
+      "apps/ios/project.yml"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "e8ad80afc72ac1db50b8655314ab8972ea9283fa",
+    "message": "test: cover invalid talk config inputs",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P4",
+    "category": "TEST-ONLY",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/config/config.talk-validation.test.ts",
+      "src/config/zod-schema.talk.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "b4c8950417626fb1076d1dc06f2c7fe3bf1d1e0f",
+    "message": "refactor: centralize talk silence timeout defaults",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/android/app/src/main/java/ai/openclaw/app/voice/TalkDefaults.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/voice/TalkModeManager.kt",
+      "apps/android/app/src/test/java/ai/openclaw/app/voice/TalkModeConfigParsingTest.kt",
+      "apps/ios/Sources/Voice/TalkDefaults.swift",
+      "apps/ios/Sources/Voice/TalkModeManager.swift",
+      "apps/ios/Tests/TalkModeConfigParsingTests.swift",
+      "apps/macos/Sources/OpenClaw/TalkDefaults.swift",
+      "apps/macos/Sources/OpenClaw/TalkModeRuntime.swift",
+      "apps/macos/Tests/OpenClawIPCTests/TalkModeConfigParsingTests.swift",
+      "docs/gateway/configuration-reference.md",
+      "docs/nodes/talk.md",
+      "src/config/schema.help.ts",
+      "src/config/talk-defaults.test.ts",
+      "src/config/talk-defaults.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "4e2290b841d3c753d1a213e23c45f0970b7b94fa",
+    "message": "refactor: add canonical talk config payload",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/android/app/src/main/java/ai/openclaw/app/voice/TalkModeManager.kt",
+      "apps/android/app/src/test/java/ai/openclaw/app/voice/TalkModeConfigParsingTest.kt",
+      "apps/shared/OpenClawKit/Sources/OpenClawKit/TalkConfigParsing.swift",
+      "apps/shared/OpenClawKit/Tests/OpenClawKitTests/TalkConfigParsingTests.swift",
+      "src/config/defaults.ts",
+      "src/config/talk.normalize.test.ts",
+      "src/config/talk.ts",
+      "src/config/types.gateway.ts",
+      "src/gateway/protocol/schema/channels.ts",
+      "src/gateway/server.talk-config.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "4f482d2a2b4d57d67e7f3660c3e3b0993ce24b0b",
+    "message": "refactor: share Apple talk config parsing",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/ios/Sources/Voice/TalkModeManager.swift",
+      "apps/ios/Tests/TalkModeConfigParsingTests.swift",
+      "apps/macos/Sources/OpenClaw/AnyCodable+Helpers.swift",
+      "apps/macos/Sources/OpenClaw/TalkModeRuntime.swift",
+      "apps/shared/OpenClawKit/Sources/OpenClawKit/AnyCodable+Helpers.swift",
+      "apps/shared/OpenClawKit/Sources/OpenClawKit/TalkConfigParsing.swift",
+      "apps/shared/OpenClawKit/Tests/OpenClawKitTests/TalkConfigParsingTests.swift"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "eba9dcc67a4c3fd706f7905f6af45615be7dad89",
+    "message": "Refactor release hardening follow-ups (#39959)",
+    "pr": "#39959",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "MEDIUM",
+    "files": [
+      "apps/macos/Sources/OpenClaw/HostEnvSecurityPolicy.generated.swift",
+      "package.json",
+      "scripts/pr",
+      "scripts/release-check.ts",
+      "src/agents/models-config.fills-missing-provider-apikey-from-env-var.test.ts",
+      "src/agents/models-config.ts",
+      "src/agents/pi-embedded-runner-extraparams.test.ts",
+      "src/agents/pi-embedded-runner/extra-params.ts",
+      "src/agents/provider-capabilities.test.ts",
+      "src/agents/provider-capabilities.ts",
+      "src/agents/transcript-policy.test.ts",
+      "src/agents/transcript-policy.ts",
+      "test/release-check.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "27558806b5341f2c299ac71a137b47d46305f055",
+    "message": "docs: clarify bot review conversation ownership (#39942)",
+    "pr": "#39942",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CHORE",
+    "conflict_risk": "LOW",
+    "files": [
+      ".github/pull_request_template.md",
+      "AGENTS.md",
+      "CONTRIBUTING.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "0af3118d08f3078dec3c2c43c14488120088d275",
+    "message": "fix: harden talk silence timeout parsing (#39607) (thanks @danodoesdesign)",
+    "pr": "#39607",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      ".secrets.baseline",
+      "apps/android/app/src/main/java/ai/openclaw/app/voice/TalkModeManager.kt",
+      "apps/android/app/src/test/java/ai/openclaw/app/voice/TalkModeConfigParsingTest.kt",
+      "apps/ios/Sources/Voice/TalkModeManager.swift",
+      "apps/ios/Tests/TalkModeConfigParsingTests.swift"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "6ff7e8f42ee9c8efb7f38eaf73e70a9dead4ca98",
+    "message": "talk: add configurable silence timeout",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "apps/android/app/src/main/java/ai/openclaw/app/voice/TalkModeManager.kt",
+      "apps/android/app/src/test/java/ai/openclaw/app/voice/TalkModeConfigParsingTest.kt",
+      "apps/ios/Sources/Voice/TalkModeManager.swift",
+      "apps/ios/Tests/TalkModeConfigParsingTests.swift",
+      "apps/macos/Sources/OpenClaw/TalkModeRuntime.swift",
+      "apps/macos/Tests/OpenClawIPCTests/TalkModeConfigParsingTests.swift",
+      "docs/gateway/configuration-reference.md",
+      "docs/nodes/talk.md",
+      "src/config/schema.help.quality.test.ts",
+      "src/config/schema.help.ts",
+      "src/config/schema.labels.ts",
+      "src/config/talk.normalize.test.ts",
+      "src/config/talk.ts",
+      "src/config/types.gateway.ts",
+      "src/config/zod-schema.ts",
+      "src/gateway/protocol/schema/channels.ts",
+      "src/gateway/server.talk-config.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "097c588a6be7d4b68f62e6e1a762ff45ab7d4e1f",
+    "message": "transcript-policy: use named Set for anthropic signature-excluded providers",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/transcript-policy.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "2bf53c2cb673d49dd0425626b9355194287e40a2",
+    "message": "transcript-policy: don't preserve thinking signatures for kimi-coding (#39798)",
+    "pr": "#39798",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/transcript-policy.test.ts",
+      "src/agents/transcript-policy.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "e2c07f8a47c56cd98bb34ae2108f14844a30a465",
+    "message": "fix: land mac universal release defaults (#33891) (thanks @cgdusek)",
+    "pr": "#33891",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "1a364cd066d05d281bb261cbf924ce3e61a80a27",
+    "message": "Docs: clarify notarization handoff in mac release flow",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/platforms/mac/release.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "9ce79bba3435225bbeb50fe96aefbb25e4c59a87",
+    "message": "Docs: mark basic mac dist example as non-notarized",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/platforms/mac/release.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "047f4acacf9e3fe972290c0b30586e22cfb59041",
+    "message": "Docs: clarify release build arch defaults for mac packaging",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/platforms/mac/release.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "64760614aa9cb29152feadf3a476f3252b049a4a",
+    "message": "macOS: default release app builds to universal binaries",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "DOCS",
+    "conflict_risk": "LOW",
+    "files": [
+      "docs/platforms/mac/release.md",
+      "scripts/package-mac-app.sh"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "76e4b8277fb4dbbb8a4a893f24e2bdc37822f020",
+    "message": "fix(issue-39839): address tool-call extra params parsing for kimi anthropic-messages",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/pi-embedded-runner-extraparams.test.ts",
+      "src/agents/pi-embedded-runner/extra-params.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "6dadfaa18cac9921e5a915fb89eb3a407e37bc4d",
+    "message": "docs: use alphabetical provider ordering",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CHORE",
+    "conflict_risk": "LOW",
+    "files": [
+      "AGENTS.md",
+      "docs/brave-search.md",
+      "docs/perplexity.md",
+      "docs/tools/web.md",
+      "src/commands/configure.wizard.ts",
+      "src/commands/onboard-search.test.ts",
+      "src/commands/onboard-search.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "d5b305b250066a629d1a9d37620992814c272d36",
+    "message": "fix: follow up #39321 and #38445 landings",
+    "pr": "#39321",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      ".secrets.baseline",
+      "CHANGELOG.md",
+      "apps/macos/Sources/OpenClaw/TalkModeRuntime.swift",
+      "apps/macos/Tests/OpenClawIPCTests/LowCoverageViewSmokeTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/TalkModeRuntimeSpeechTests.swift"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "ba2d580c4e618ef2619d6049e7e715eecd7e65b2",
+    "message": "docs: note /landpr merge process",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CHORE",
+    "conflict_risk": "LOW",
+    "files": [
+      "AGENTS.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "acac7e31329b5df9349e3927aef06f2c4bd6fbb3",
+    "message": "fix: land Brave llm-context gaps (#33383) (thanks @thirumaleshp)",
+    "pr": "#33383",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "docs/tools/web.md",
+      "src/agents/tools/web-search.ts",
+      "src/agents/tools/web-tools.enabled-defaults.test.ts",
+      "src/config/config.web-search-provider.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "8a1015f1aadbd619737c33c4ccc0b035e284a159",
+    "message": "feat: add Brave Search LLM Context API mode for web_search",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "NICE-TO-HAVE",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/tools/web-search.test.ts",
+      "src/agents/tools/web-search.ts",
+      "src/config/schema.help.ts",
+      "src/config/schema.labels.ts",
+      "src/config/types.tools.ts",
+      "src/config/zod-schema.agent-runtime.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "38f4ac5e3c9d17a24240097689f1f3c0d61e3d89",
+    "message": "fix(feishu): restore @larksuiteoapi/node-sdk in root dependencies",
+    "pr": "",
+    "action": "REVIEW",
+    "priority": "P2",
+    "category": "CHANNEL-FIX",
+    "conflict_risk": "MEDIUM",
+    "files": [
+      "package.json",
+      "pnpm-lock.yaml"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "d91d24e41d9cb6808e162e5414867f1b202943cb",
+    "message": "refactor: tighten codex inline api fallback follow-up",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "UNUSED-CHANNEL",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/pi-embedded-runner/model.test.ts",
+      "src/agents/pi-embedded-runner/model.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "d2347ed82560e0169167e80c60b0f8e69783841c",
+    "message": "macOS: set speech recognition taskHint for Talk Mode mic capture",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/macos/Sources/OpenClaw/TalkModeRuntime.swift"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "6e086a5b3b097a07aa310abb549ce9fb06257233",
+    "message": "chore: update secrets baseline line numbers",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "UNUSED-CHANNEL",
+    "conflict_risk": "LOW",
+    "files": [
+      ".secrets.baseline"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "c9f2d6b761e5ea2719b7520fc895976663a68130",
+    "message": "fix(agents): let forward-compat resolve api when inline model omits it",
+    "pr": "",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CRITICAL-BUG",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/pi-embedded-runner/model.test.ts",
+      "src/agents/pi-embedded-runner/model.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "e9d51d874b207936e24f5b5a5224f55abf98857c",
+    "message": "Models: fix codex follow-up CI issues",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/models-config.providers.openai-codex.test.ts",
+      "src/agents/models-config.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "ec75643a0904dded9fbdbd17287b7d7c1e4185b9",
+    "message": "Models: scope implicit codex baseUrl override",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/models-config.providers.openai-codex.test.ts",
+      "src/agents/models-config.providers.ts",
+      "src/agents/models-config.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "374001c4a077212f77cc56c8defb5954d6e4fdf8",
+    "message": "fix: add implicit openai-codex provider snapshot",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/models-config.providers.openai-codex.test.ts",
+      "src/agents/models-config.providers.ts",
+      "src/agents/models-config.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "58ae5582f4cd829563fc917216ccb5df4da2ccf4",
+    "message": "macOS: fix VoiceWakeOverlayController exclusivity violation #39275",
+    "pr": "#39275",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/macos/Sources/OpenClaw/NotifyOverlay.swift",
+      "apps/macos/Sources/OpenClaw/OverlayPanelFactory.swift",
+      "apps/macos/Sources/OpenClaw/TalkOverlay.swift",
+      "apps/macos/Sources/OpenClaw/VoiceWakeOverlayController+Window.swift"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "eebee8409394beef2af93e3892183a78cce4ff09",
+    "message": "fix(models): discover Vercel AI Gateway catalog",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "docs/providers/vercel-ai-gateway.md",
+      "src/agents/models-config.e2e-harness.ts",
+      "src/agents/models-config.providers.ts",
+      "src/agents/models-config.providers.vercel-ai-gateway.test.ts",
+      "src/agents/vercel-ai-gateway.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "386b811ddd9383060eddc9c3cbdb714b69245119",
+    "message": "test(cron): relax concurrent start race timeout",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P4",
+    "category": "TEST-ONLY",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/cron/service.issue-regressions.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "f66cc886d372aa0a80861fbb1839c9f1e2651135",
+    "message": "test(agents): normalize live model not-found skips",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P4",
+    "category": "TEST-ONLY",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/live-model-errors.test.ts",
+      "src/agents/live-model-errors.ts",
+      "src/agents/models.profiles.live.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "f930fcbd3f99d185df6ee67693552cf6c8f7030b",
+    "message": "Add regression test and CHANGELOG entry",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/infra/process-respawn.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "03aea082d05476f0cfba7ca2826b384bba17a540",
+    "message": "chore: condense inline comments per code review",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "UNUSED-CHANNEL",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/infra/process-respawn.test.ts",
+      "src/infra/process-respawn.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "5f45e76d615f67624b18083e6650109b47d426bb",
+    "message": "fix(darwin): remove self-kickstart from launchd gateway restart; rely on KeepAlive",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/infra/process-respawn.test.ts",
+      "src/infra/process-respawn.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "53fb317e7fa523c424992d28706c7c24549ad306",
+    "message": "fix(macos): clean swiftformat pass and sendable warning",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/macos/Sources/OpenClaw/CameraCaptureService.swift",
+      "apps/macos/Sources/OpenClaw/ConfigStore.swift",
+      "apps/macos/Sources/OpenClaw/ConnectionModeResolver.swift",
+      "apps/macos/Sources/OpenClaw/ControlChannel.swift",
+      "apps/macos/Sources/OpenClaw/CronModels.swift",
+      "apps/macos/Sources/OpenClaw/DeviceModelCatalog.swift",
+      "apps/macos/Sources/OpenClaw/DiagnosticsFileLog.swift",
+      "apps/macos/Sources/OpenClaw/ExecApprovals.swift",
+      "apps/macos/Sources/OpenClaw/ExecApprovalsGatewayPrompter.swift",
+      "apps/macos/Sources/OpenClaw/ExecApprovalsSocket.swift",
+      "apps/macos/Sources/OpenClaw/ExecCommandResolution.swift",
+      "apps/macos/Sources/OpenClaw/GatewayConnection.swift",
+      "apps/macos/Sources/OpenClaw/GatewayEndpointStore.swift",
+      "apps/macos/Sources/OpenClaw/GatewayEnvironment.swift",
+      "apps/macos/Sources/OpenClaw/HealthStore.swift",
+      "apps/macos/Sources/OpenClaw/HostEnvSecurityPolicy.generated.swift",
+      "apps/macos/Sources/OpenClaw/Launchctl.swift",
+      "apps/macos/Sources/OpenClaw/NodeMode/MacNodeBrowserProxy.swift",
+      "apps/macos/Sources/OpenClaw/NodeMode/MacNodeScreenCommands.swift",
+      "apps/macos/Sources/OpenClaw/OverlayPanelFactory.swift",
+      "apps/macos/Sources/OpenClaw/PeekabooBridgeHostCoordinator.swift",
+      "apps/macos/Sources/OpenClaw/PortGuardian.swift",
+      "apps/macos/Sources/OpenClaw/SessionMenuPreviewView.swift",
+      "apps/macos/Sources/OpenClaw/TalkAudioPlayer.swift",
+      "apps/macos/Sources/OpenClaw/VoiceWakeChime.swift",
+      "apps/macos/Sources/OpenClaw/VoiceWakeForwarder.swift",
+      "apps/macos/Sources/OpenClaw/WebChatSwiftUI.swift",
+      "apps/macos/Sources/OpenClawDiscovery/GatewayDiscoveryModel.swift",
+      "apps/macos/Sources/OpenClawDiscovery/TailscaleServeGatewayDiscovery.swift",
+      "apps/macos/Sources/OpenClawDiscovery/WideAreaGatewayDiscovery.swift",
+      "apps/macos/Tests/OpenClawIPCTests/AgentEventStoreTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/AgentWorkspaceTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/AnyCodableEncodingTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/AudioInputDeviceObserverTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/CLIInstallerTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/CameraCaptureServiceTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/CameraIPCTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/CanvasFileWatcherTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/CanvasIPCTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/CanvasWindowSmokeTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/ChannelsSettingsSmokeTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/CommandResolverTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/ConfigStoreTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/CoverageDumpTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/CritterIconRendererTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/CronJobEditorSmokeTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/CronModelsTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/DeepLinkAgentPolicyTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/DeviceModelCatalogTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/ExecAllowlistTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/ExecApprovalHelpersTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/ExecApprovalsGatewayPrompterTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/ExecApprovalsSocketPathGuardTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/ExecApprovalsStoreRefactorTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/ExecHostRequestEvaluatorTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/ExecSystemRunCommandValidatorTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/FileHandleLegacyAPIGuardTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/FileHandleSafeReadTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/GatewayAgentChannelTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/GatewayAutostartPolicyTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/GatewayChannelConfigureTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/GatewayChannelConnectTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/GatewayChannelRequestTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/GatewayChannelShutdownTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/GatewayConnectionControlTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/GatewayDiscoveryHelpersTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/GatewayDiscoveryModelTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/GatewayEndpointStoreTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/GatewayEnvironmentTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/GatewayFrameDecodeTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/GatewayLaunchAgentManagerTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/GatewayProcessManagerTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/GatewayWebSocketTestSupport.swift",
+      "apps/macos/Tests/OpenClawIPCTests/HealthDecodeTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/HealthStoreStateTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/HostEnvSanitizerTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/HoverHUDControllerTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/InstancesSettingsSmokeTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/InstancesStoreTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/LogLocatorTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/LowCoverageHelperTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/LowCoverageViewSmokeTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/MacGatewayChatTransportMappingTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/MacNodeBrowserProxyTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/MacNodeRuntimeTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/MasterDiscoveryMenuSmokeTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/MenuContentSmokeTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/MenuSessionsInjectorTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/ModelCatalogLoaderTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/NixModeStableSuiteTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/NodeManagerPathsTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/NodePairingApprovalPrompterTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/NodePairingReconcilePolicyTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/OnboardingCoverageTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/OnboardingViewSmokeTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/OnboardingWizardStepViewTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/OpenClawConfigFileTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/PermissionManagerLocationTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/PermissionManagerTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/Placeholder.swift",
+      "apps/macos/Tests/OpenClawIPCTests/RemotePortTunnelTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/RuntimeLocatorTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/ScreenshotSizeTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/SemverTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/SessionDataTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/SessionMenuPreviewTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/SettingsViewSmokeTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/SkillsSettingsSmokeTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/TailscaleIntegrationSectionTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/TailscaleServeGatewayDiscoveryTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/TalkAudioPlayerTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/TalkModeConfigParsingTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/UtilitiesTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/VoicePushToTalkHotkeyTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/VoicePushToTalkTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/VoiceWakeForwarderTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/VoiceWakeGlobalSettingsSyncTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/VoiceWakeHelpersTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/VoiceWakeOverlayControllerTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/VoiceWakeOverlayTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/VoiceWakeOverlayViewSmokeTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/VoiceWakeRuntimeTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/VoiceWakeTesterTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/WebChatMainSessionKeyTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/WebChatManagerTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/WebChatSwiftUISmokeTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/WideAreaGatewayDiscoveryTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/WindowPlacementTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/WorkActivityStoreTests.swift"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "eb0758e1722c05e4c6cb359ae8983cf5cf372c45",
+    "message": "docs(changelog): note Android Play policy cutovers",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CHORE",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "04b4b48077571ee6395b4948a6ed38a53c0bcaf2",
+    "message": "fix(android): persist legacy location mode migration",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/android/app/src/main/java/ai/openclaw/app/SecurePrefs.kt",
+      "apps/android/app/src/test/java/ai/openclaw/app/SecurePrefsTest.kt"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "709e11ea7076c820ffb99816bc4626b4cf7a4194",
+    "message": "build(android): bump release version code",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/android/app/build.gradle.kts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "46145fde198835a960680ef62a1f687eb01ea854",
+    "message": "fix(android): remove mic and screen foreground services",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/android/app/src/main/AndroidManifest.xml",
+      "apps/android/app/src/main/java/ai/openclaw/app/MainActivity.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/MainViewModel.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/NodeForegroundService.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/NodeRuntime.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/ScreenCaptureRequester.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/node/DeviceHandler.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/node/InvokeCommandRegistry.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/node/InvokeDispatcher.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/node/ScreenHandler.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/node/ScreenRecordManager.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/protocol/OpenClawProtocolConstants.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/ui/OnboardingFlow.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/ui/SettingsSheet.kt",
+      "apps/android/app/src/test/java/ai/openclaw/app/node/DeviceHandlerTest.kt",
+      "apps/android/app/src/test/java/ai/openclaw/app/node/InvokeCommandRegistryTest.kt",
+      "apps/android/app/src/test/java/ai/openclaw/app/protocol/OpenClawProtocolConstantsTest.kt",
+      "docs/concepts/features.md",
+      "docs/index.md",
+      "docs/nodes/index.md",
+      "docs/platforms/android.md",
+      "src/gateway/android-node.capabilities.live.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "1230cefe25b8d4d2ab7cb5a8fae7738332a3462e",
+    "message": "fix(android): remove background location mode",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/android/app/src/main/AndroidManifest.xml",
+      "apps/android/app/src/main/java/ai/openclaw/app/LocationMode.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/NodeRuntime.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/node/DeviceHandler.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/node/LocationHandler.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/ui/OnboardingFlow.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/ui/SettingsSheet.kt",
+      "apps/android/app/src/test/java/ai/openclaw/app/node/DeviceHandlerTest.kt",
+      "docs/nodes/location-command.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "0f9566b0b51249006f9a183b0b78bde206b707f9",
+    "message": "fix(android): remove self-update install flow",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/android/README.md",
+      "apps/android/app/src/main/AndroidManifest.xml",
+      "apps/android/app/src/main/java/ai/openclaw/app/InstallResultReceiver.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/NodeRuntime.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/node/AppUpdateHandler.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/node/InvokeCommandRegistry.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/node/InvokeDispatcher.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/protocol/OpenClawProtocolConstants.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/ui/OnboardingFlow.kt",
+      "apps/android/app/src/main/java/ai/openclaw/app/ui/SettingsSheet.kt",
+      "apps/android/app/src/test/java/ai/openclaw/app/node/AppUpdateHandlerTest.kt",
+      "apps/android/app/src/test/java/ai/openclaw/app/node/InvokeCommandRegistryTest.kt",
+      "apps/android/app/src/test/java/ai/openclaw/app/protocol/OpenClawProtocolConstantsTest.kt",
+      "docs/concepts/features.md",
+      "docs/nodes/index.md",
+      "docs/platforms/android.md",
+      "src/gateway/android-node.capabilities.live.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "492fe679a703a0809be1575c65183af02a0a4182",
+    "message": "feat(tui): infer workspace agent when launching TUI (#39591)",
+    "pr": "#39591",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "NICE-TO-HAVE",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "docs/cli/tui.md",
+      "src/agents/agent-scope.test.ts",
+      "src/agents/agent-scope.ts",
+      "src/tui/tui.test.ts",
+      "src/tui/tui.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "f4c4856254fe3581f2cd533133dffa8a1f43a506",
+    "message": "docs(changelog): add #39377 failover note (#39704)",
+    "pr": "#39377",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CHORE",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md"
+    ],
+    "related_commits": [
+      "8a20f5146047d66c2d384c6a5d5fb646fbcc8249"
+    ]
+  },
+  {
+    "sha": "8a20f5146047d66c2d384c6a5d5fb646fbcc8249",
+    "message": "fix: add rate limit patterns for 'too many tokens' and 'tokens per day' (#39377)",
+    "pr": "#39377",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/agents/pi-embedded-helpers.isbillingerrormessage.test.ts",
+      "src/agents/pi-embedded-helpers/errors.ts",
+      "src/agents/pi-embedded-helpers/failover-matches.ts",
+      "src/cron/service.issue-regressions.test.ts",
+      "src/cron/service/timer.ts",
+      "src/memory/manager-embedding-ops.ts",
+      "src/memory/manager.embedding-batches.test.ts"
+    ],
+    "related_commits": [
+      "f4c4856254fe3581f2cd533133dffa8a1f43a506"
+    ]
+  },
+  {
+    "sha": "aedf3ee68f510af24b87fedf4fa3cf10848a6ca6",
+    "message": "fix(skills): expand skill-creator description to cover edit/audit/review triggers (#39158)",
+    "pr": "#39158",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "skills/skill-creator/SKILL.md"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "b38f37163030ebe1692500a48eac237de647cc56",
+    "message": "fix: add @tloncorp/api to pnpm onlyBuiltDependencies allowlist (#39027)",
+    "pr": "#39027",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "UNUSED-CHANNEL",
+    "conflict_risk": "MEDIUM",
+    "files": [
+      "package.json",
+      "pnpm-workspace.yaml"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "e5fdfec9dc1fee5a33775a10f47dc4ff90246737",
+    "message": "fix(config): accept \"openclaw\" as browser profile driver in Zod schema (#39374)",
+    "pr": "#39374",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CRITICAL-BUG",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/config/schema.help.quality.test.ts",
+      "src/config/schema.help.ts",
+      "src/config/types.browser.ts",
+      "src/config/zod-schema.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "f73778e9b2cc2c1621497292453a3af8f5fb5b55",
+    "message": "fix: remove redundant root strip-ansi dependency (#39652)",
+    "pr": "#39652",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "MEDIUM",
+    "files": [
+      "package.json",
+      "pnpm-lock.yaml"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "c1b914026d3f5601e82e119dbea0be0f45c3bcd3",
+    "message": "fix: add missing strip-ansi dep for pi-coding-agent (#38999)",
+    "pr": "#38999",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "MEDIUM",
+    "files": [
+      "package.json",
+      "pnpm-lock.yaml"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "9425209602143aef73288fe61edc47b23fbc5eb2",
+    "message": "fix(mattermost): pass payload.replyToId as root_id for threaded replies (#27744)",
+    "pr": "#27744",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "UNUSED-CHANNEL",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "extensions/mattermost/src/mattermost/monitor.test.ts",
+      "extensions/mattermost/src/mattermost/monitor.ts",
+      "src/auto-reply/reply/reply-plumbing.test.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "4db634964b93f5b1f64746fbd1f4777f1f895d81",
+    "message": "chore(secrets): sync appcast baseline",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "UNUSED-CHANNEL",
+    "conflict_risk": "LOW",
+    "files": [
+      ".secrets.baseline"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "6477da623f669dc3f9b9a125fb766e0cea78353c",
+    "message": "chore(secrets): sync detect-secrets baseline",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "UNUSED-CHANNEL",
+    "conflict_risk": "LOW",
+    "files": [
+      ".secrets.baseline"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "d3c3d0e730d1c1034f6996b5c50d353b515ada6b",
+    "message": "style(android): update app icon",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "NATIVE-APP",
+    "conflict_risk": "LOW",
+    "files": [
+      "apps/android/app/src/main/res/mipmap-hdpi/ic_launcher.png",
+      "apps/android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png",
+      "apps/android/app/src/main/res/mipmap-mdpi/ic_launcher.png",
+      "apps/android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png",
+      "apps/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png",
+      "apps/android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png",
+      "apps/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png",
+      "apps/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png",
+      "apps/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+      "apps/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png",
+      "apps/android/app/src/main/res/values/colors.xml"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "92648f9ba9d1ba1ee441b805cf6cb17ed9b68358",
+    "message": "fix(agents): broaden 402 temporary-limit detection and allow billing cooldown probe (#38533)",
+    "pr": "#38533",
+    "action": "MERGE",
+    "priority": "P1",
+    "category": "CRITICAL-BUG",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "src/agents/failover-error.test.ts",
+      "src/agents/model-fallback.probe.test.ts",
+      "src/agents/model-fallback.ts",
+      "src/agents/pi-embedded-helpers.isbillingerrormessage.test.ts",
+      "src/agents/pi-embedded-helpers/errors.ts",
+      "src/agents/pi-embedded-runner/run.ts"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "d15b6af77b49833cede844b88988d13a3715ee01",
+    "message": "fix: land contributor PR #39516 from @Imhermes1",
+    "pr": "#39516",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "CHANGELOG.md",
+      "apps/macos/Sources/OpenClaw/GatewayConnection.swift",
+      "apps/macos/Sources/OpenClaw/GatewayEndpointStore.swift",
+      "apps/macos/Sources/OpenClaw/NodeMode/MacNodeBrowserProxy.swift",
+      "apps/macos/Sources/OpenClaw/NodeMode/MacNodeModeCoordinator.swift",
+      "apps/macos/Sources/OpenClaw/NodeMode/MacNodeRuntime.swift",
+      "apps/macos/Sources/OpenClaw/PermissionsSettings.swift",
+      "apps/macos/Sources/OpenClaw/SettingsRootView.swift",
+      "apps/macos/Tests/OpenClawIPCTests/CronModelsTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/GatewayEndpointStoreTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/MacNodeBrowserProxyTests.swift",
+      "apps/macos/Tests/OpenClawIPCTests/MacNodeRuntimeTests.swift",
+      "apps/shared/OpenClawKit/Sources/OpenClawChatUI/AssistantTextParser.swift",
+      "apps/shared/OpenClawKit/Sources/OpenClawChatUI/ChatComposer.swift",
+      "apps/shared/OpenClawKit/Sources/OpenClawChatUI/ChatMarkdownPreprocessor.swift",
+      "apps/shared/OpenClawKit/Sources/OpenClawChatUI/ChatMessageViews.swift",
+      "apps/shared/OpenClawKit/Sources/OpenClawChatUI/ChatView.swift",
+      "apps/shared/OpenClawKit/Sources/OpenClawKit/BrowserCommands.swift",
+      "apps/shared/OpenClawKit/Sources/OpenClawKit/Capabilities.swift",
+      "apps/shared/OpenClawKit/Tests/OpenClawKitTests/AssistantTextParserTests.swift",
+      "apps/shared/OpenClawKit/Tests/OpenClawKitTests/ChatComposerPasteSupportTests.swift",
+      "apps/shared/OpenClawKit/Tests/OpenClawKitTests/ChatMarkdownPreprocessorTests.swift"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "05217845a768a3f1686f816f2d2d3009982dea9c",
+    "message": "build: bump version to 2026.3.8",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "HIGH",
+    "files": [
+      "CHANGELOG.md",
+      "apps/android/app/build.gradle.kts",
+      "apps/ios/ActivityWidget/Info.plist",
+      "apps/ios/ShareExtension/Info.plist",
+      "apps/ios/Sources/Info.plist",
+      "apps/ios/Tests/Info.plist",
+      "apps/ios/WatchApp/Info.plist",
+      "apps/ios/WatchExtension/Info.plist",
+      "apps/ios/project.yml",
+      "apps/macos/Sources/OpenClaw/Resources/Info.plist",
+      "docs/platforms/mac/release.md",
+      "extensions/acpx/package.json",
+      "extensions/bluebubbles/package.json",
+      "extensions/copilot-proxy/package.json",
+      "extensions/diagnostics-otel/package.json",
+      "extensions/diffs/package.json",
+      "extensions/discord/package.json",
+      "extensions/feishu/package.json",
+      "extensions/google-gemini-cli-auth/package.json",
+      "extensions/googlechat/package.json",
+      "extensions/imessage/package.json",
+      "extensions/irc/package.json",
+      "extensions/line/package.json",
+      "extensions/llm-task/package.json",
+      "extensions/lobster/package.json",
+      "extensions/matrix/CHANGELOG.md",
+      "extensions/matrix/package.json",
+      "extensions/mattermost/package.json",
+      "extensions/memory-core/package.json",
+      "extensions/memory-lancedb/package.json",
+      "extensions/minimax-portal-auth/package.json",
+      "extensions/msteams/CHANGELOG.md",
+      "extensions/msteams/package.json",
+      "extensions/nextcloud-talk/package.json",
+      "extensions/nostr/CHANGELOG.md",
+      "extensions/nostr/package.json",
+      "extensions/open-prose/package.json",
+      "extensions/signal/package.json",
+      "extensions/slack/package.json",
+      "extensions/synology-chat/package.json",
+      "extensions/telegram/package.json",
+      "extensions/tlon/package.json",
+      "extensions/twitch/CHANGELOG.md",
+      "extensions/twitch/package.json",
+      "extensions/voice-call/CHANGELOG.md",
+      "extensions/voice-call/package.json",
+      "extensions/whatsapp/package.json",
+      "extensions/zalo/CHANGELOG.md",
+      "extensions/zalo/package.json",
+      "extensions/zalouser/CHANGELOG.md",
+      "extensions/zalouser/package.json",
+      "package.json"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "389647157d6e5c6d18bded7e7e6e304dd0a39406",
+    "message": "build: update stable appcast release URL",
+    "pr": "",
+    "action": "OPTIONAL",
+    "priority": "P3",
+    "category": "UNKNOWN",
+    "conflict_risk": "LOW",
+    "files": [
+      "appcast.xml"
+    ],
+    "related_commits": []
+  },
+  {
+    "sha": "c217237a36e86e4a84ff032092f2d0b70083fb11",
+    "message": "style(daemon-cli): format lifecycle test",
+    "pr": "",
+    "action": "SKIP",
+    "priority": "P5",
+    "category": "CHORE",
+    "conflict_risk": "LOW",
+    "files": [
+      "src/cli/daemon-cli/lifecycle.test.ts"
+    ],
+    "related_commits": []
+  }
+]
